@@ -1,0 +1,34 @@
+# Sensitive mail and credentials
+*.eml
+*.emlx
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+
+# Local data and runtime output
+*.db
+*.sqlite
+*.sqlite3
+*.log
+logs/
+tmp/
+temp/
+
+# Build and dependency artifacts
+node_modules/
+dist/
+build/
+coverage/
+.next/
+.cache/
+
+# Only synthetic or irreversibly redacted fixtures may be committed here.
+# Never add real mail, credentials, or reversible redactions.
+!fixtures/
+!fixtures/synthetic/
+!fixtures/redacted/
