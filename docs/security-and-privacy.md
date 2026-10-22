@@ -26,7 +26,7 @@ Use managed secrets and encryption for credentials and provider tokens. Never co
 
 ## Test data
 
-By default agents and tooling must not open real emails. A future milestone may process a real local email only when its approved work packet explicitly authorizes that data access. Even then, raw content must not be copied, committed, included in fixtures, logged, pasted into chat or documentation, or durably stored. Tests and committed fixtures use only fully synthetic messages created from scratch, never redacted real email. Real `.eml` and `.emlx` files remain ignored; the synthetic fixture subtree is reserved exclusively for synthetic messages.
+By default agents and tooling must not open real emails. A future milestone may process a real local email only when its approved work packet explicitly authorizes that data access. Even then, local inputs remain ignored and must never be staged, copied into the repository, logged, pasted into chat or documentation, or durably stored. No real, redacted, or synthetic email files may be committed or pushed. All `.eml` and `.emlx` files are ignored everywhere without exception. Future parser tests must construct fully synthetic MIME or messages in memory at test runtime or use non-email structured unit inputs; email-file fixtures must not be stored in Git.
 
 ## Deletion and incidents
 

@@ -6,7 +6,8 @@ M0 delivers a safe, operationally governed repository through canonical product,
 
 ## Acceptance criteria
 
-- [x] Real `.eml` and `.emlx` files, credentials, local databases, logs, and build artifacts are ignored; only the explicitly named synthetic fixture subtree permits synthetic email files.
+- [x] All `.eml` and `.emlx` files are ignored everywhere, without exception; no real, redacted, or synthetic email files may be committed or pushed. Credentials, local databases, logs, and build artifacts are also ignored.
+- [x] Parser tests use fully synthetic messages constructed in memory at runtime or non-email structured inputs; email-file fixtures are not stored in Git.
 - [x] README and operating contract state the purpose, current status, authority, roles, protocols, approval boundaries, and privacy rules.
 - [x] Product, architecture, and security records capture approved direction and unresolved choices.
 - [x] Roadmap defines milestone completion and M0–M7 as usable vertical outcomes with accurate statuses.
@@ -18,7 +19,8 @@ M0 delivers a safe, operationally governed repository through canonical product,
 ## Verification
 
 - `git diff --check`: passed.
-- Safe `git check-ignore` checks: a private `.eml` path is ignored; a synthetic fixture `.eml` path is not ignored. No real message was created or opened.
+- Safe `git check-ignore` checks: both private and synthetic fixture `.eml` paths are ignored. No real message was created or opened.
+- `git ls-files` confirmed no `.eml` or `.emlx` files are tracked on the branch.
 - Local Markdown link targets validated.
 - Reviewed the committed change for secrets, PII, raw email content, real email filenames, and application code; none included.
 
@@ -26,15 +28,15 @@ M0 delivers a safe, operationally governed repository through canonical product,
 
 - Mailbox provider, protocol, secret manager, encryption implementation, retention schedule, and provider-side deletion recovery design remain unresolved.
 - Future work must meet the accepted temporary raw-email lifecycle and obtain explicit packet authorization before processing a real local email. Provider mail must not be automatically deleted.
-- The initial source checkout contains real ignored email samples. This work neither reads nor alters them. The synthetic subtree relies on contributors following its synthetic-only rule.
+- The initial source checkout contains real ignored email samples. This work neither reads nor alters them. Ignore rules do not prevent a forced add; contributors must enforce the no-email-file policy.
 
 ## Current state and handoff
 
 - Status: under review on branch; not merged or released.
-- Branch: `codex/m0-governance-corrections`, based on `codex/m0-governance-groundwork` at stable deliverable commit `4f1c220` (`docs: establish M0 governance groundwork`). Prior correction: `9584bcf` (`docs: finalize M0 governance corrections`). The final correction commit is identified by Git history, not a self-reference here.
-- Changed files in the latest correction: `AGENTS.md`, `docs/architecture.md`, `docs/milestones/_template.md`, and this file. The previous correction changed `.gitignore`, `AGENTS.md`, `README.md`, `docs/product.md`, `docs/security-and-privacy.md`, `docs/roadmap.md`, `docs/milestones/_template.md`, and this file.
+- Branch: `codex/m0-governance-corrections`, based on `codex/m0-governance-groundwork` at stable deliverable commit `4f1c220` (`docs: establish M0 governance groundwork`). Prior corrections include `9584bcf` and `d1c1f80`. The latest correction commit is identified by Git history, not a self-reference here.
+- Changed files in the latest correction: `.gitignore`, `AGENTS.md`, `docs/security-and-privacy.md`, `docs/roadmap.md`, and this file. Earlier deliverable changes are recorded in Git history.
 - Verification: whitespace, safe ignore behavior, local Markdown links, and committed diff privacy/scope review as recorded above.
-- Decisions: The user-approved vertical roadmap, completion standard, synthetic-only fixtures, explicit authorization for future real local email processing, and milestone packet approval gate apply. Stack recommendations discussed in chat are not accepted ADRs. ADRs 0001–0003 remain accepted.
+- Decisions: The user-approved vertical roadmap, completion standard, the prohibition on committing or pushing any email files, synthetic in-memory parser tests, explicit authorization for future real local email processing, and milestone packet approval gate apply. Stack recommendations discussed in chat are not accepted ADRs. ADRs 0001–0003 remain accepted.
 - Risks: See open questions above; no application code or real data is included.
 - Exact next action: Overseer reviews the correction commit and open questions, then decides M0 integration and presents a proposed M1 packet to the user for approval before creating or dispatching its task; do not merge without direction.
 
@@ -45,3 +47,4 @@ M0 delivers a safe, operationally governed repository through canonical product,
 | 2026-09-16 | Created and verified M0 governance and documentation groundwork. | M0 milestone task |
 | 2026-10-22 | Corrected milestone outcomes, completion standard, privacy and fixture policy, and handoff. | M0 milestone task |
 | 2026-10-22 | Added the user approval gate and operating Definition of Done; clarified the template and undecided stack. | M0 milestone task |
+| 2026-10-22 | Applied the user veto on all committed or pushed email files and specified in-memory synthetic parser tests. | M0 milestone task |

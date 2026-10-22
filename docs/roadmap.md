@@ -15,4 +15,4 @@ Every milestone must leave a demonstrable, coherent, usable result. Scaffolding,
 | M6 | Working multi-member workspaces and permissions, with solo use still valid | M5 | Planned | Not assigned |
 | M7 | Deployed, monitored, recoverable production release | M6 | Planned | Not assigned |
 
-Future milestone packets must explicitly approve their scope, acceptance checks, and any required sensitive-data access. Statuses describe the actual state of work; task or thread identifiers are added only when known.
+No real, redacted, or synthetic email files may be committed or pushed. Parser tests must construct synthetic messages in memory at test runtime or use non-email structured unit inputs. Future milestone packets must explicitly approve their scope, acceptance checks, and any required sensitive-data access. Statuses describe the actual state of work; task or thread identifiers are added only when known.
