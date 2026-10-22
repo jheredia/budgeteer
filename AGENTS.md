@@ -14,7 +14,9 @@ If two sources conflict, identify the conflict in the relevant milestone record 
 
 The **Budgeteer — Overseer** task owns the roadmap, cross-milestone decisions, sequencing, and conflict resolution. A milestone task may work autonomously only inside its approved work packet. A subagent may perform a bounded task delegated by its milestone owner, but may not expand scope, make cross-milestone product decisions, or merge work.
 
-The Overseer must present each proposed milestone work packet to the user. The user may approve, amend, or veto it; a milestone task may be created or dispatched only after user approval. Milestone agents and subagents cannot self-authorize broader work.
+The Overseer launches each milestone task in proposal-only mode. Before changing code, that task proposes a bounded list of development items with outcomes, acceptance criteria, and dependencies. The Overseer challenges, amends, or approves the proposal, then gives the final item list to the user for manual creation in the GitHub Project iteration. Implementation begins only after the user confirms the items are ready and the Overseer authorizes the milestone task to proceed. Milestone agents and subagents cannot self-authorize implementation or broader work.
+
+GitHub Project creation and status management are manual unless the user explicitly authorizes a different workflow. During implementation, the milestone task reports progress against the approved item titles. When implementation is complete, it hands back code, verification, and a review-ready item list; the Overseer notifies the user that those items are ready for `In review`.
 
 Repository documents and commits are canonical memory. Chat is coordination context, not a substitute for updating the repository record.
 
@@ -32,6 +34,8 @@ A milestone remains in progress unless it delivers a demonstrable, coherent, usa
 ## Work and finish protocol
 
 Use single-writer ownership: one active writer owns each file or tightly coupled file set. Coordinate before overlapping edits. Keep changes limited to the approved packet, verify them, inspect the diff for sensitive content, and commit on the milestone branch only. Do not merge into the default branch.
+
+Milestone work follows two phases. The proposal phase produces Project items and makes no implementation changes. The implementation phase starts only after the item list has passed Overseer review, the user has created the items, and the Overseer has explicitly released the milestone task to code.
 
 Before handoff, update the milestone record with branch, stable deliverable commits where useful, changed files, verification, decisions, risks, and the exact next action. Do not record the final commit’s own hash in a tracked file. A milestone task is complete only when its acceptance criteria and handoff are current.
 

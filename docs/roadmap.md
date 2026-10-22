@@ -4,6 +4,18 @@
 
 Every milestone must leave a demonstrable, coherent, usable result. Scaffolding, a schema alone, disconnected components, or a partially implemented flow do not complete a milestone. Each code milestone must keep the app runnable, preserve completed workflows, deliver its new journey end-to-end, persist data correctly, and pass its acceptance checks. Unfinished milestones remain in progress. Design milestones must yield a reviewable interactive prototype. M0’s functional result is a safe, operationally governed repository.
 
+## Milestone workflow
+
+1. The Overseer launches `MX` in proposal-only mode.
+2. `MX` proposes bounded development items and does not change code.
+3. The Overseer challenges, amends, or approves the proposal.
+4. The Overseer gives the final list to the user for manual creation in the matching GitHub Project iteration.
+5. After the user confirms the items are ready, the Overseer releases `MX` to implement them.
+6. `MX` codes, verifies, and delivers against those item titles.
+7. The Overseer reports the review-ready items to the user so they can be left in `In review` for acceptance.
+
+GitHub Project mutations remain manual unless the user explicitly authorizes a different workflow.
+
 | Milestone | Vertical outcome | Dependencies | Status | Task or thread |
 | --- | --- | --- | --- | --- |
 | M0 | Safe, governed repository | None | Complete; user approved and locally integrated 2026-10-22 | `codex/m0-governance-corrections`; Overseer task: Budgeteer — Overseer |

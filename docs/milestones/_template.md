@@ -3,7 +3,7 @@
 - Status:
 - Owner task:
 - Dependencies:
-- User approval: date or reference (record only when known)
+- Implementation authorization: date or reference (record only when known)
 
 ## Demonstrable outcome
 
@@ -13,6 +13,13 @@ State the outcome in one sentence.
 
 - In scope:
 - Out of scope:
+
+## Project item proposal
+
+List each proposed development item with its outcome, acceptance criteria, and dependencies.
+
+- Overseer decision: pending | contested | approved
+- User Project setup: pending | confirmed
 
 ## Acceptance criteria
 
@@ -29,6 +36,7 @@ List unresolved material choices, risks, or dependencies.
 ## Current state and handoff
 
 - Branch and stable deliverable commits, if useful (never the tracked file’s own final commit hash):
+- Approved Project items:
 - Changed files:
 - Verification:
 - Decisions:
