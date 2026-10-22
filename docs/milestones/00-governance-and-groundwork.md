@@ -32,13 +32,13 @@ M0 delivers a safe, operationally governed repository through canonical product,
 
 ## Current state and handoff
 
-- Status: under review on branch; not merged or released.
-- Branch: `codex/m0-governance-corrections`, based on `codex/m0-governance-groundwork` at stable deliverable commit `4f1c220` (`docs: establish M0 governance groundwork`). Prior corrections include `9584bcf` and `d1c1f80`. The latest correction commit is identified by Git history, not a self-reference here.
-- Changed files in the latest correction: `.gitignore`, `AGENTS.md`, `docs/security-and-privacy.md`, `docs/roadmap.md`, and this file. Earlier deliverable changes are recorded in Git history.
+- Status: accepted/complete; explicitly reviewed and approved by the user on 2026-10-22. Local integration is pending; not merged or released. No GitHub push is authorized.
+- Branch: `codex/m0-governance-corrections`, based on `codex/m0-governance-groundwork` at stable deliverable commit `4f1c220` (`docs: establish M0 governance groundwork`). Prior corrections include `9584bcf`, `d1c1f80`, and `62adf48`. The acceptance bookkeeping commit is identified by Git history, not a self-reference here.
+- Changed files in the acceptance bookkeeping: `README.md`, `docs/roadmap.md`, and this file. Earlier deliverable changes are recorded in Git history.
 - Verification: whitespace, safe ignore behavior, local Markdown links, and committed diff privacy/scope review as recorded above.
 - Decisions: The user-approved vertical roadmap, completion standard, the prohibition on committing or pushing any email files, synthetic in-memory parser tests, explicit authorization for future real local email processing, and milestone packet approval gate apply. Stack recommendations discussed in chat are not accepted ADRs. ADRs 0001–0003 remain accepted.
 - Risks: See open questions above; no application code or real data is included.
-- Exact next action: Overseer reviews the correction commit and open questions, then decides M0 integration and presents a proposed M1 packet to the user for approval before creating or dispatching its task; do not merge without direction.
+- Exact next action: Overseer integrates the accepted M0 branch locally, without a GitHub push, then presents a proposed M1 packet to the user for approval before creating or dispatching its task.
 
 ## Change log
 
@@ -48,3 +48,4 @@ M0 delivers a safe, operationally governed repository through canonical product,
 | 2026-10-22 | Corrected milestone outcomes, completion standard, privacy and fixture policy, and handoff. | M0 milestone task |
 | 2026-10-22 | Added the user approval gate and operating Definition of Done; clarified the template and undecided stack. | M0 milestone task |
 | 2026-10-22 | Applied the user veto on all committed or pushed email files and specified in-memory synthetic parser tests. | M0 milestone task |
+| 2026-10-22 | Recorded explicit user approval and acceptance; local integration assigned to the Overseer, with no GitHub push authorized. | M0 milestone task |

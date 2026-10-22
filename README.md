@@ -4,7 +4,7 @@ Budgeteer is a privacy-conscious personal finance product that tracks and catego
 
 ## Current status
 
-M0 is under review on its milestone branch and has not been merged or released. No application code or persistent data model has been approved or scaffolded. The M0 record is in `docs/milestones/00-governance-and-groundwork.md`.
+M0 is accepted and complete, with user approval on 2026-10-22. The Overseer will integrate it locally; no GitHub push is authorized. It has not yet been merged or released. No application code or persistent data model has been approved or scaffolded. The M0 record is in `docs/milestones/00-governance-and-groundwork.md`.
 
 ## Canonical documentation read order
 
