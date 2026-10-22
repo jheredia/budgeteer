@@ -6,7 +6,9 @@ A **workspace** is the generic boundary for Budgeteer data and membership. It su
 
 ## Goals
 
-- Help people turn transaction notifications from a dedicated mailbox into understandable, reviewable records.
+- Track and categorize expenses and present a clear picture of spending.
+- Provide cautious comparisons and insights grounded in available evidence, with uncertainty visible.
+- Turn transaction notifications into understandable, reviewable records; email ingestion is a means, not the product itself.
 - Preserve provenance and uncertainty so users can correct or reject extraction results.
 - Make privacy and minimization default behaviors, especially for email-derived data.
 - Support a workspace that can remain personal or be shared with additional members.

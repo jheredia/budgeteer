@@ -27,7 +27,7 @@ Repository documents and commits are canonical memory. Chat is coordination cont
 
 Use single-writer ownership: one active writer owns each file or tightly coupled file set. Coordinate before overlapping edits. Keep changes limited to the approved packet, verify them, inspect the diff for sensitive content, and commit on the milestone branch only. Do not merge into the default branch.
 
-Before handoff, update the milestone record with branch and HEAD, changed files, verification, decisions, risks, and the exact next action. A milestone task is complete only when its acceptance criteria and handoff are current.
+Before handoff, update the milestone record with branch, stable deliverable commits where useful, changed files, verification, decisions, risks, and the exact next action. Do not record the final commit’s own hash in a tracked file. A milestone task is complete only when its acceptance criteria and handoff are current.
 
 ## Approval boundaries
 
@@ -35,8 +35,8 @@ Milestone agents may implement approved acceptance criteria and make reversible 
 
 ## Privacy rules
 
-Never open, copy, stage, modify, quote, or commit real `.eml` files. Raw email is transient sensitive input: parse it in memory where practical; do not put raw bodies or sensitive headers in logs, errors, analytics, or permanent application storage. If temporary raw storage is unavoidable, it requires encryption, access scoping, a short explicit TTL, and deletion.
+By default agents and tooling must not open real emails. A future milestone may process a real local email only if its approved work packet explicitly authorizes that data access. Even then, do not copy, commit, include in fixtures, log, paste into chat or documentation, or durably store raw content. Tests and committed fixtures use fully synthetic messages created from scratch only. Do not stage, modify, or quote real email files. Raw email is transient sensitive input: parse it in memory where practical; do not put raw bodies or sensitive headers in logs, errors, analytics, or permanent application storage. If temporary raw storage is unavoidable, it requires encryption, access scoping, a short explicit TTL, and deletion.
 
 The dedicated upstream mailbox remains the raw source and archive initially. The product must not automatically delete provider mail. Any later provider-side deletion option requires separate explicit approval, successful-processing safeguards, and recovery considerations.
 
-Structured records remain sensitive. Store masked account hints only; use managed secrets and encryption for credentials and tokens; commit only synthetic or irreversibly redacted fixtures.
+Structured records remain sensitive. Store masked account hints only; use managed secrets and encryption for credentials and tokens; commit only fully synthetic fixtures created from scratch.

@@ -27,8 +27,7 @@ coverage/
 .next/
 .cache/
 
-# Only synthetic or irreversibly redacted fixtures may be committed here.
-# Never add real mail, credentials, or reversible redactions.
-!fixtures/
-!fixtures/synthetic/
-!fixtures/redacted/
+# Only fully synthetic messages created from scratch may be committed here.
+# Real or redacted real email is never allowed.
+!fixtures/synthetic/**/*.eml
+!fixtures/synthetic/**/*.emlx

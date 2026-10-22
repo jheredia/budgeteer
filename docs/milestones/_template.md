@@ -18,7 +18,7 @@ List unresolved material choices, risks, or dependencies. Do not convert ambigui
 
 ## Current state and handoff
 
-- Branch and HEAD:
+- Branch and stable deliverable commits, if useful (never the tracked file’s own final commit hash):
 - Changed files:
 - Verification:
 - Decisions:

@@ -1,14 +1,18 @@
 # Roadmap
 
-| Milestone | Scope | Dependencies | Status | Task or thread |
-| --- | --- | --- | --- | --- |
-| M0 | Governance and groundwork | None | Complete | Milestone branch `codex/m0-governance-groundwork`; Overseer task: Budgeteer — Overseer |
-| M1 | Product and data-model decisions | M0 | Planned | Not assigned |
-| M2 | Mailbox ingestion and safe parsing design | M0, M1 | Planned | Not assigned |
-| M3 | Transaction evidence and review workflow | M1, M2 | Planned | Not assigned |
-| M4 | Workspace membership and access controls | M1 | Planned | Not assigned |
-| M5 | Ledger, reconciliation, and reporting foundations | M1, M3 | Planned | Not assigned |
-| M6 | Security hardening, retention, and operational readiness | M2–M5 | Planned | Not assigned |
-| M7 | End-to-end validation and release decision | M2–M6 | Planned | Not assigned |
+## Definition of Done
 
-Statuses describe planning state, not implementation completeness. New task or thread identifiers are added only when known and should not be invented from chat context.
+Every milestone must leave a demonstrable, coherent, usable result. Scaffolding, a schema alone, disconnected components, or a partially implemented flow do not complete a milestone. Each code milestone must keep the app runnable, preserve completed workflows, deliver its new journey end-to-end, persist data correctly, and pass its acceptance checks. Unfinished milestones remain in progress. Design milestones must yield a reviewable interactive prototype. M0’s functional result is a safe, operationally governed repository.
+
+| Milestone | Vertical outcome | Dependencies | Status | Task or thread |
+| --- | --- | --- | --- | --- |
+| M0 | Safe, governed repository | None | Under review on branch; not merged or released | `codex/m0-governance-corrections`; Overseer task: Budgeteer — Overseer |
+| M1 | Reviewable interactive product and UX prototype using synthetic data | M0 | Planned | Not assigned |
+| M2 | First usable local app: import an authorized local email, review it, and see the ledger and totals; includes all technical setup | M1 | Planned | Not assigned |
+| M3 | Working dedicated-inbox synchronization with idempotency and recovery | M2 | Planned | Not assigned |
+| M4 | Working categorization, duplicate handling, card-payment and refund handling, and internal-transfer matching | M3 | Planned | Not assigned |
+| M5 | Working evidence-backed financial insights | M4 | Planned | Not assigned |
+| M6 | Working multi-member workspaces and permissions, with solo use still valid | M5 | Planned | Not assigned |
+| M7 | Deployed, monitored, recoverable production release | M6 | Planned | Not assigned |
+
+Future milestone packets must explicitly approve their scope, acceptance checks, and any required sensitive-data access. Statuses describe the actual state of work; task or thread identifiers are added only when known.

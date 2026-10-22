@@ -26,8 +26,8 @@ Use managed secrets and encryption for credentials and provider tokens. Never co
 
 ## Test data
 
-Git may contain only synthetic or irreversibly redacted fixtures. Real `.eml` files are ignored and must never be opened, copied, staged, modified, quoted, or committed. Redaction must not be reversible through surrounding context, stable identifiers, or retained raw source material.
+By default agents and tooling must not open real emails. A future milestone may process a real local email only when its approved work packet explicitly authorizes that data access. Even then, raw content must not be copied, committed, included in fixtures, logged, pasted into chat or documentation, or durably stored. Tests and committed fixtures use only fully synthetic messages created from scratch, never redacted real email. Real `.eml` and `.emlx` files remain ignored; the synthetic fixture subtree is reserved exclusively for synthetic messages.
 
 ## Deletion and incidents
 
-Deletion must be deliberate, auditable where appropriate, and compatible with recovery needs. If sensitive email content is exposed or suspected to be exposed, contain access, stop propagation, preserve only safe incident evidence, rotate affected credentials where applicable, assess scope, and follow the governing incident and notification process. Do not reproduce raw content in incident notes unless separately authorized and protected.
+Deletion must be deliberate, auditable where appropriate, and compatible with recovery needs. If sensitive email content is exposed or suspected to be exposed, contain access, stop propagation, preserve only safe incident evidence, rotate affected credentials where applicable, assess scope, and follow the governing incident and notification process. Do not reproduce raw content in incident notes.
