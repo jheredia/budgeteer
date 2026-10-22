@@ -14,7 +14,13 @@ If two sources conflict, identify the conflict in the relevant milestone record 
 
 The **Budgeteer — Overseer** task owns the roadmap, cross-milestone decisions, sequencing, and conflict resolution. A milestone task may work autonomously only inside its approved work packet. A subagent may perform a bounded task delegated by its milestone owner, but may not expand scope, make cross-milestone product decisions, or merge work.
 
+The Overseer must present each proposed milestone work packet to the user. The user may approve, amend, or veto it; a milestone task may be created or dispatched only after user approval. Milestone agents and subagents cannot self-authorize broader work.
+
 Repository documents and commits are canonical memory. Chat is coordination context, not a substitute for updating the repository record.
+
+## Milestone Definition of Done
+
+A milestone remains in progress unless it delivers a demonstrable, coherent, usable outcome. Scaffolding, a schema alone, disconnected components, or a partially implemented flow do not complete a milestone. Code milestones must keep the app runnable, preserve completed workflows, deliver the new journey end-to-end, persist data correctly, and pass acceptance checks. Design milestones must produce a reviewable interactive prototype. M0 produces a safe, operationally governed repository.
 
 ## Startup protocol
 

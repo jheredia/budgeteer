@@ -18,4 +18,4 @@ Budgeteer will operate around a generic workspace boundary and produce user-revi
 
 The following are deliberately undecided: mailbox providers and integration protocol; runtime and deployment platform; database and encryption implementation; membership roles and authorization model; exact evidence schema and retention duration; transaction matching, deduplication, and reconciliation rules; review workflow; and whether a future opt-in provider-mail deletion feature is appropriate after successful processing and recovery safeguards.
 
-No unresolved item above is an implementation decision until approved through the applicable authority order.
+Next.js, TypeScript, Vercel, and Postgres were discussed in chat as recommendations, not accepted ADRs. Runtime, deployment, and database choices remain unresolved until an approved milestone packet or ADR decides them. No unresolved item above is an implementation decision until approved through the applicable authority order.

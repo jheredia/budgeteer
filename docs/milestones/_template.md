@@ -1,8 +1,18 @@
 # Milestone title
 
+- Status:
+- Owner task:
+- Dependencies:
+- User approval: date or reference (record only when known)
+
+## Demonstrable outcome
+
+State the outcome in one sentence.
+
 ## Scope
 
-State the approved work packet and explicit exclusions.
+- In scope:
+- Out of scope:
 
 ## Acceptance criteria
 
@@ -14,7 +24,7 @@ Record commands or checks, outcomes, and any limitations.
 
 ## Risks and open questions
 
-List unresolved material choices, risks, or dependencies. Do not convert ambiguity into an undocumented decision.
+List unresolved material choices, risks, or dependencies.
 
 ## Current state and handoff
 
