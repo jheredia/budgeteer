@@ -1,11 +1,11 @@
 # M1 Product and UX prototype
 
-- Status: paused for milestone-conversation handoff; representative surface source unverified
+- Status: implementation verified; ready for user review; final acceptance pending
 - Owner: `m1_implementation` agent, coordinated by Budgeteer — Overseer (Cloud)
 - Branch: `codex/m1-product-ux-prototype`
 - Dependency: M0 complete
 - Authorization: user explicitly requested M1 implementation and a new agent on 2026-10-23. Manual Project-item creation has not been confirmed; this explicit instruction authorizes the start without asserting that setup occurred.
-- Visual selection: user chose option 2 and requested Budgeteer's mostly green colors on 2026-10-23. Implementation is limited to one representative responsive review surface; approval of that implemented surface remains pending before broad UI work.
+- Visual selection: user chose option 2 and requested Budgeteer's mostly green colors on 2026-10-23. The latest user instruction authorizes continuation through the complete usable prototype in this Overseer chat. The Overseer inspected actual representative mobile/desktop renders before connecting the remaining journeys; final user acceptance is pending.
 
 ## Demonstrable outcome
 
@@ -26,7 +26,7 @@ The Overseer completed contention and supplied this list. All entries use relati
 - Priority High; Size M; Estimate 3; Dependencies none.
 - Outcome: coherent Spanish (Chile) foundation.
 - Acceptance: select one of three generated visual directions; produce one representative mobile and desktop surface for user approval before broad UI implementation; define navigation across all five journeys and one shared resettable in-memory contract separating proposals, canonical entries, and minimized evidence; specify CLP, timezone, keyboard behavior, and visible focus.
-- Status: option 2 selected with mostly green palette; generated green revision and representative review-surface source created. Official brand hex values are unavailable in tracked assets/docs or historical starter code, so provisional green tokens are documented explicitly. Work paused before browser verification; visual approval remains pending.
+- Status: option 2 selected with mostly green palette; generated green revision and representative review-surface source created. Official brand hex values are unavailable in tracked assets/docs or historical starter code, so provisional green tokens are documented explicitly. The initial coordination pause is resolved. Actual representative desktop/mobile renders were reviewed by the Overseer before the complete journey implementation; browser verification now passes.
 
 ### 2. Explore monthly spending and comparisons
 
@@ -64,14 +64,14 @@ The Overseer completed contention and supplied this list. All entries use relati
 All feature items depend only on item 1; their shared contract avoids cyclic dependencies. Final integration connects them. Launch instructions, responsive/keyboard checks and end-to-end verification belong to the milestone Definition of Done rather than item 6.
 
 - [x] User selects initial generated visual direction (option 2, mostly green).
-- [ ] User approves representative implemented mobile and desktop surface before broad UI implementation.
-- [ ] One locally runnable prototype connects all approved journeys.
-- [ ] Synthetic in-memory state is shared consistently across every transaction and comparison.
-- [ ] Proposals, canonical entries and minimized evidence are clearly distinct.
-- [ ] Approve and ignore paths show correct queue, ledger, provenance and overview effects.
-- [ ] Representative mobile/desktop widths and primary keyboard journey verified.
-- [ ] Local launch/reset instructions, verification, limitations and outstanding product choices recorded.
-- [ ] No excluded data, email file, production service or production-stack decision introduced.
+- [x] Selected visual direction preserved; Overseer inspected representative implemented desktop/mobile surfaces before remaining journeys were connected under the latest explicit user authorization. Final user visual acceptance remains pending.
+- [x] One locally runnable prototype connects all approved journeys.
+- [x] Synthetic in-memory state is shared consistently across every transaction and comparison.
+- [x] Proposals, canonical entries and minimized evidence are clearly distinct.
+- [x] Approve and ignore paths show correct queue, ledger, provenance and overview effects.
+- [x] Representative mobile/desktop widths and primary keyboard journey verified.
+- [x] Local launch/reset instructions, verification, limitations and outstanding product choices recorded.
+- [x] No excluded data, email file, production service or production-stack decision introduced.
 
 ## Bootstrap, decisions and verification
 
@@ -81,14 +81,18 @@ All feature items depend only on item 1; their shared contract avoids cyclic dep
 - Single Overseer: Cloud Overseer accepted coordination; outgoing local Overseer retired. See [handoff](../overseer-handoff.md).
 - Product Design index requires exactly three visual options and user selection before scaffolding when no visual target exists. Initial concepts explore overview-first, review-first and ledger-first hierarchy; each includes desktop and mobile treatments. They contain only synthetic structured illustrative data.
 - No saved Product Design context or local visual assets were present. The referenced shared critical-overrides resource could not be read through the skill provider; no user-supplied visual reference was omitted.
-- Prototype-only tooling: dependency-free HTML/CSS/JS and Node static file server in `prototype/`, not a production-stack decision. Only the representative review surface is in source; other journeys are not implemented.
-- Verification so far: JavaScript syntax and whitespace checks passed; no tracked `.eml`/`.emlx` paths; safe `git check-ignore` confirms both extensions ignored. Startup failed with sandbox `listen EPERM` on both wildcard and loopback port 4173. No app behavior, responsive rendering, keyboard operation or browser console has been verified; root `design-qa.md` is blocked.
+- Prototype-only tooling: dependency-free HTML/CSS/JS and a Node static file server in `prototype/`, not a production-stack decision. Overview, review, ledger, record/evidence detail, and source/privacy journeys are connected. All six approved items are implementation-verified and ready for manual `In review`; this does not assert that Project items have been created.
+- Verification: syntax and whitespace checks passed. `prototype/verify.cjs` and `docs/design/m1/captures/verification.json` record real Chromium checks of approve/category/evidence propagation, ignore, monthly comparisons and zero baseline, filters/detail/back navigation, reset/reload, primary keyboard controls, no overflow at 320/390/768/1024/1440 widths, no browser errors, no external requests, and no cookies/web-storage writes. Santiago month-boundary behavior was checked. Independent Overseer checks and screenshots support [audit](../design/m1/audit.md).
+- Initial sandbox startup failed with `listen EPERM`; supported automatic permission review subsequently approved the local loopback static server and Chromium. HTTP browser verification is now complete. Connected Browser-app verification was unavailable. Direct `file://` launch was blocked by managed browser policy; use the documented server. Full accessibility conformance, other browser engines, and real touch devices are not claimed.
+- No tracked `.eml`/`.emlx` files. No real email/data, external publication, merge, or Project mutation occurred.
 
 ## Current handoff and exact next action
 
-Work is paused by the Overseer to resolve the user's separate visible milestone-conversation requirement. The current agent is a subagent of the Overseer chat, not a separate user-visible milestone conversation. Preserve the branch and handoff; do not resume code, server or browser work until the Overseer releases it after coordination is resolved. Then resolve sandbox server permissions, verify only the representative surface, and return for visual approval before broad UI implementation. See `prototype/README.md` and root `design-qa.md`.
+Implementation and design review are ready on `codex/m1-product-ux-prototype`. Changed files include the complete `prototype/` app and verification script, README, roadmap, milestone and handoff records, visual notes, QA, screenshots, and the Overseer audit. See [launch/walkthrough](../../prototype/README.md), [QA](../../design-qa.md), and [audit](../design/m1/audit.md).
 
-No Project item status has been changed. M1 remains in progress, not review-ready or complete.
+The user resolved separate-chat coordination: this task covers the complete usable prototype; internal milestone agents communicate directly with the Overseer, and each milestone retains a dedicated branch. No user relay or Git bundle is required for routine coordination in this task.
+
+Exact next action: the Overseer gives the user the runnable prototype, design-skill list, evidence, and six review-ready item titles. The user reviews/accepts M1 and manually handles Project items/status. Do not call M1 accepted/complete or begin M2 until separately authorized. No push or merge is authorized by local implementation instructions.
 
 ## Change log
 
@@ -96,3 +100,4 @@ No Project item status has been changed. M1 remains in progress, not review-read
 | --- | --- | --- |
 | 2026-10-23 | Recovered proposal and handoff records; recorded explicit implementation authorization, user-authorized base exception, finalized item list and visual checkpoint. | M1 agent under Cloud Overseer |
 | 2026-10-23 | Recorded option 2 selection and mostly green constraint; generated green revision and representative source; paused after startup permission failures for separate milestone-chat handoff. | M1 agent under Cloud Overseer |
+| 2026-10-23 | Resolved chat isolation workflow; completed connected prototype and real Chromium verification; Overseer reviewed screenshots and corrected navigation/accessibility issues. Ready for user review, not accepted. | M1 agent and Cloud Overseer |

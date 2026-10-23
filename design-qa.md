@@ -1,29 +1,28 @@
-# M1 representative surface QA
+# M1 prototype design QA
 
-final result: blocked
+final result: passed
 
-## Target and state
+## Source and rendered evidence
 
-- Original selected visual: `docs/design/m1/visual-option-2.png`.
-- User constraint: mostly green Budgeteer palette. No official hex tokens available; provisional green revision: `docs/design/m1/visual-option-2-green.png`.
-- Both concepts were opened/generated and visually inspected. Each image contains desktop and mobile treatments.
-- Implementation source: `prototype/`, representative pending-transaction review surface only.
-- Intended capture viewports: desktop 1440 × 1024 CSS px; mobile 390 × 844 CSS px; device scale factor 1. No captures exist yet, so density normalization and aligned comparison are pending.
+Selected target: `docs/design/m1/visual-option-2.png`, adapted to the user's mostly green requirement in `docs/design/m1/visual-option-2-green.png`. The original concepts are preserved. The reference and real rendered desktop/mobile review screenshots were opened and inspected together at the same pending-proposal state. The source is a composite desktop/mobile concept rather than a pixel-exact browser export; comparisons assess corresponding layout, hierarchy, spacing, typography, controls, colors, and evidence rows. No fabricated pixel similarity score is claimed.
 
-## Blockers and evidence
+Current evidence: `docs/design/m1/captures/review-desktop.png`, `review-mobile.png`, other flow screenshots, and `verification.json`; independent screenshots and step findings are in `docs/design/m1/audit.md`. Desktop render 1440 × 1024; mobile render 390 × 844; device scale factor 1, full-page captures. The responsive suite additionally checks widths 320, 768, and 1024.
 
-- Local static-server startup returned `listen EPERM` on both `0.0.0.0:4173` and `127.0.0.1:4173` in the cloud sandbox. No server remains running. No permissions escalation was attempted.
-- The Browser app exposed no callable browser-control tool. Local Chromium and Playwright are installed, but have not been launched for this implementation.
-- Before further investigation, the Overseer requested a pause to resolve the user's requirement for a separate visible milestone conversation. No additional code/build work may proceed until released.
+## Comparison and corrections
 
-## Required fidelity surfaces
+- Layout/hierarchy: forest sidebar, mint simulation notice, prominent review heading, separate confirmed total, proposal card, primary green approval action, secondary ignore, and distinct evidence panel preserve option 2. Mobile stacks total, proposal, actions, and evidence without horizontal overflow.
+- Typography: system Arial/Helvetica sans-serif follows the selected reference's readable sans-serif hierarchy without remote font requests. Exact reference font is unavailable; no official font or brand-token claim is made.
+- Colors/assets: documented provisional greens follow the user's constraint; outline library icons match the reference treatment and retain their license. No custom logo redesign or placeholder illustration was introduced.
+- Copy/state: Spanish (Chile), CLP, Santiago dates, uncertain category, unavailable operation time, and simulation/privacy explanations are explicit. All displayed totals derive from current synthetic canonical entries.
+- Fixed before handoff: skip-link route changes, evidence-fragment route loss, ledger-link semantics, mobile active-route menu closing, and clipped mobile category filter text. Focus styling remains visible. Mobile spacing was tightened while retaining 44px primary controls.
+- Blocking P0/P1/P2 findings: none remaining in the reviewed scope. Nonblocking limit: provisional font/colors may be refined if official brand assets become available.
 
-Fonts/typography, spacing/layout rhythm, green colors/tokens, icon/image quality, and copy/content have not been checked against a rendered implementation. Full-view and focused comparison evidence is unavailable. No responsive, keyboard, approve/ignore, reset, overflow, contrast, network-request, or browser-console verification is claimed.
+## Behavioral evidence and limits
 
-## Next checks after release
+`node prototype/verify.cjs` passed on final app source: approval/category update, stable single canonical entry, preserved evidence, ignored-proposal exclusion, overview/month comparison and zero baseline, ledger filters/clear/detail/back, reload/reset, keyboard approval and menu Escape, no width overflow, no console/page errors, no external requests, and no cookies/localStorage/sessionStorage. Santiago month-boundary behavior was checked. The Overseer independently exercised the main journey, inspected screenshot evidence, and verified the mobile navigation fix.
 
-1. Resolve milestone conversation ownership and obtain Overseer release.
-2. Resolve local server permissions through the supported approval mechanism or run in a permitted local environment.
-3. Capture desktop/mobile pending state, compare aligned source/implementation together, and inspect focused typography, controls and evidence rows.
-4. Verify primary category/approve/ignore/reset behavior, total consistency, keyboard focus, mobile menu, overflow, console errors and absence of persistence/network requests.
-5. Fix actionable P0/P1/P2 findings, recapture and repeat. Ask for representative-surface visual approval before broad UI implementation.
+Local static-server and Chromium startup required supported permission review after initial sandbox `EPERM`. The approved loopback server is running; actual HTTP browser verification succeeded. The connected Browser app was unavailable, so evidence is local Chromium/Playwright rather than Browser-app verification. Direct-file launch was blocked by managed browser policy; use the documented HTTP server. Safari/Firefox, screen-reader/device testing, and full accessibility compliance are unverified. No hosted deployment or production readiness is claimed.
+
+## Delivery status
+
+The prototype is ready for user review; final visual/product acceptance remains pending. No Project status was changed. Skills used: Product Design index, Ideate, Image to Code, Design QA, Audit; supporting User Context/Get Context. No persistence, backend data API, authentication, ingestion, mailbox integration, real financial data, email fixture, or production-stack selection was added.

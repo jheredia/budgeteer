@@ -1,0 +1,22 @@
+{
+  "result": "passed",
+  "browser": "Chromium via Playwright",
+  "viewports": [
+    320,
+    390,
+    768,
+    1024,
+    1440
+  ],
+  "checks": [
+    "Initial review separates pending proposal and structured evidence from $428.500 confirmed total.",
+    "Approve recategorizes once, preserves uncertain evidence and updates queue, ledger and overview.",
+    "Zero-baseline comparison explains unavailable percentage and drills down into matching empty month.",
+    "Ignore never creates a canonical entry; combined filters, clear, details and filter-preserving back navigation work.",
+    "Sources honestly labels simulation and explains no permanent raw-email retention or automatic provider deletion.",
+    "Reload resets all synthetic state without cookies or web storage.",
+    "Primary keyboard approve, mobile menu Enter/Escape, and all four views fit 320/390/768/1024/1440 widths."
+  ],
+  "consoleErrors": [],
+  "externalRequests": []
+}

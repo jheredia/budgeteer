@@ -6,7 +6,7 @@ This record transfers Budgeteer coordination from the local **Budgeteer — Over
 
 There must not be two active Overseers. The Cloud Overseer becomes authoritative after it checks out the current `origin/master`, completes the acceptance checks below, and explicitly acknowledges the handoff. The local Overseer must then stop coordinating milestones and remains historical context only.
 
-## Repository state being transferred
+## Original repository state being transferred (historical)
 
 - Repository: `jheredia/budgeteer` (`https://github.com/jheredia/budgeteer`).
 - Default branch: `master`.
@@ -17,7 +17,7 @@ There must not be two active Overseers. The Cloud Overseer becomes authoritative
 - Cloud work is limited to committed repository content. It is not authorized to access Gmail, any local mailbox, local real-email samples, or raw financial messages. M1 uses synthetic structured data only.
 - Accepted decisions are ADRs 0001–0003: generic workspaces, evidence separate from the canonical ledger, and transient raw email with no automatic provider deletion.
 
-## Workflow state
+## Original workflow state (historical)
 
 - M1 has been launched through its proposal phase only.
 - Its six candidate items are recorded in `docs/milestones/01-product-and-ux-prototype.md`.
@@ -36,7 +36,7 @@ Before directing work, the Cloud Overseer must:
 4. Restate that M1 implementation is unauthorized and that GitHub Project mutations are manual.
 5. Accept the single-Overseer role and treat this local task as retired from coordination.
 
-## Exact continuation
+## Original bootstrap continuation (historical)
 
 The Cloud Overseer's first product action is the pending M1 contention pass:
 
@@ -67,3 +67,10 @@ The Cloud Overseer must not recreate M0, reopen real emails, automate the GitHub
 ## Current coordination update
 
 The user resolved the isolated-chat issue: separate chats are optional for new tasks; this task covers the complete usable prototype. The single Cloud Overseer coordinates internal milestone agents directly. M1 remains on `codex/m1-product-ux-prototype`. The latest user instruction authorizes adapting the workflow and continuing M1 through a usable prototype with the selected option 2 and mostly green palette. The separate-chat pause is superseded. Earlier bootstrap/workflow sections above are historical snapshots, not current blockers. Project changes remain manual and unconfirmed; no push or merge is authorized. Report actual design skills before marking complete and retain final user acceptance as pending until given.
+
+
+## M1 review handoff
+
+The complete M1 prototype is implemented on `codex/m1-product-ux-prototype` and verified in local Chromium. The separate-chat pause and initial server-permission blocker are resolved. See the M1 milestone, `prototype/README.md`, root `design-qa.md`, and `docs/design/m1/audit.md` for current scope, launch, verification, and limitations. Internal agents report directly to this single Overseer; separate chats are optional for independent new tasks. No work is running in an isolated M1 chat under this Overseer's coordination.
+
+The actual design skills used are Product Design index, Ideate, Image to Code, Design QA, and Audit, with User Context/Get Context supporting the brief. These were reported before any completion decision. All six approved items are ready for user review and manual `In review` status; Project creation remains unconfirmed, and no Project mutation, push, or merge has been performed. Final M1 acceptance and any M2 start remain pending user direction.
