@@ -74,3 +74,10 @@ The user resolved the isolated-chat issue: separate chats are optional for new t
 The complete M1 prototype is implemented on `codex/m1-product-ux-prototype` and verified in local Chromium. The separate-chat pause and initial server-permission blocker are resolved. See the M1 milestone, `prototype/README.md`, root `design-qa.md`, and `docs/design/m1/audit.md` for current scope, launch, verification, and limitations. Internal agents report directly to this single Overseer; separate chats are optional for independent new tasks. No work is running in an isolated M1 chat under this Overseer's coordination.
 
 The actual design skills used are Product Design index, Ideate, Image to Code, Design QA, and Audit, with User Context/Get Context supporting the brief. These were reported before any completion decision. All six approved items are ready for user review and manual `In review` status; Project creation remains unconfirmed, and no Project mutation, push, or merge has been performed. Final M1 acceptance and any M2 start remain pending user direction.
+
+
+## Accepted M1 and M2 proposal authorization
+
+On 2026-10-23 the user explicitly accepted M1 after local review and requested preparation of the M2 proposal. M1's verified deliverable `b3aef1e31bce4ee722529010248ff77bbd1b02ba` was already pushed to `codex/m1-product-ux-prototype` at the user's request; it remains unmerged. M1 is accepted/complete. Earlier pending-acceptance and unpushed snapshots above are superseded by this update.
+
+Next: an internal M2 proposal agent works on a dedicated M2 branch based on the accepted M1 history until integration is separately authorized. Scope is documentation/proposal only: no application implementation, production stack decision, real email access, mailbox connection, or Project mutation. The Overseer reviews the proposal and presents final copyable items for manual Project creation before M2 implementation authorization. No communication between sidebar chats or manual file transfers is required.

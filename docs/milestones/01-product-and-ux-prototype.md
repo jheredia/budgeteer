@@ -1,11 +1,12 @@
 # M1 Product and UX prototype
 
-- Status: implementation verified; ready for user review; final acceptance pending
+- Status: accepted/complete; user accepted local review on 2026-10-23
 - Owner: `m1_implementation` agent, coordinated by Budgeteer — Overseer (Cloud)
 - Branch: `codex/m1-product-ux-prototype`
+- Published deliverable: `b3aef1e31bce4ee722529010248ff77bbd1b02ba`, pushed to the matching GitHub branch after explicit user authorization and verified remotely. No merge to `master` performed.
 - Dependency: M0 complete
 - Authorization: user explicitly requested M1 implementation and a new agent on 2026-10-23. Manual Project-item creation has not been confirmed; this explicit instruction authorizes the start without asserting that setup occurred.
-- Visual selection: user chose option 2 and requested Budgeteer's mostly green colors on 2026-10-23. The latest user instruction authorizes continuation through the complete usable prototype in this Overseer chat. The Overseer inspected actual representative mobile/desktop renders before connecting the remaining journeys; final user acceptance is pending.
+- Visual selection: user chose option 2 and requested Budgeteer's mostly green colors on 2026-10-23. The latest user instruction authorizes continuation through the complete usable prototype in this Overseer chat. The Overseer inspected actual representative mobile/desktop renders before connecting the remaining journeys; the user accepted M1 after local review on 2026-10-23.
 
 ## Demonstrable outcome
 
@@ -64,7 +65,7 @@ The Overseer completed contention and supplied this list. All entries use relati
 All feature items depend only on item 1; their shared contract avoids cyclic dependencies. Final integration connects them. Launch instructions, responsive/keyboard checks and end-to-end verification belong to the milestone Definition of Done rather than item 6.
 
 - [x] User selects initial generated visual direction (option 2, mostly green).
-- [x] Selected visual direction preserved; Overseer inspected representative implemented desktop/mobile surfaces before remaining journeys were connected under the latest explicit user authorization. Final user visual acceptance remains pending.
+- [x] Selected visual direction preserved; Overseer inspected representative implemented desktop/mobile surfaces before remaining journeys were connected under the latest explicit user authorization. Final user visual acceptance was given on 2026-10-23.
 - [x] One locally runnable prototype connects all approved journeys.
 - [x] Synthetic in-memory state is shared consistently across every transaction and comparison.
 - [x] Proposals, canonical entries and minimized evidence are clearly distinct.
@@ -92,7 +93,7 @@ Implementation and design review are ready on `codex/m1-product-ux-prototype`. C
 
 The user resolved separate-chat coordination: this task covers the complete usable prototype; internal milestone agents communicate directly with the Overseer, and each milestone retains a dedicated branch. No user relay or Git bundle is required for routine coordination in this task.
 
-Exact next action: the Overseer gives the user the runnable prototype, design-skill list, evidence, and six review-ready item titles. The user reviews/accepts M1 and manually handles Project items/status. Do not call M1 accepted/complete or begin M2 until separately authorized. No push or merge is authorized by local implementation instructions.
+Exact next action: prepare M2 in proposal-only mode as explicitly requested with M1 acceptance. The user handles Project status manually. M2 implementation is not authorized. Do not merge M1 into `master` without separate authorization. Earlier ready-for-review wording and verification limits above describe the delivered snapshot; the acceptance recorded here supersedes the pending acceptance status.
 
 ## Change log
 
@@ -101,3 +102,4 @@ Exact next action: the Overseer gives the user the runnable prototype, design-sk
 | 2026-10-23 | Recovered proposal and handoff records; recorded explicit implementation authorization, user-authorized base exception, finalized item list and visual checkpoint. | M1 agent under Cloud Overseer |
 | 2026-10-23 | Recorded option 2 selection and mostly green constraint; generated green revision and representative source; paused after startup permission failures for separate milestone-chat handoff. | M1 agent under Cloud Overseer |
 | 2026-10-23 | Resolved chat isolation workflow; completed connected prototype and real Chromium verification; Overseer reviewed screenshots and corrected navigation/accessibility issues. Ready for user review, not accepted. | M1 agent and Cloud Overseer |
+| 2026-10-23 | Recorded explicit user acceptance after local review and authorization to prepare M2 proposal; M1 deliverable already pushed at user request, no merge performed. | Cloud Overseer |
