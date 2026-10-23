@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123c32">
+  <title>Por revisar · Budgeteer</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <aside class="sidebar">
+    <div class="brand-row">
+      <span class="brand">Budgeteer</span>
+      <button class="menu-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false" aria-controls="navigation"><img src="assets/menu.svg" alt="" width="24" height="24"></button>
+    </div>
+    <nav id="navigation" aria-label="Navegación principal">
+      <button class="nav-item" disabled title="Disponible en una próxima etapa"><img src="assets/house.svg" alt="">Resumen</button>
+      <button class="nav-item" disabled title="Disponible en una próxima etapa"><img src="assets/list.svg" alt="">Movimientos</button>
+      <a class="nav-item active" href="#main" aria-current="page"><img src="assets/file-text.svg" alt="">Por revisar <span class="count" id="pending-count">1</span></a>
+      <button class="nav-item" disabled title="Disponible en una próxima etapa"><img src="assets/database.svg" alt="">Fuentes</button>
+    </nav>
+  </aside>
+  <div class="app">
+    <div class="simulation-banner"><img src="assets/info.svg" alt="">Datos sintéticos · Sin conexión a buzones</div>
+    <main id="main" tabindex="-1">
+      <header class="page-heading">
+        <div class="intro"><h1>Revisa con tranquilidad</h1><p>Confirma o ajusta la siguiente propuesta antes de incluirla en tus gastos.</p></div>
+        <section class="monthly-summary" aria-label="Gastos confirmados de octubre">
+          <div class="summary-value"><strong id="monthly-total">$428.500</strong><span>gastos confirmados en octubre</span></div>
+          <div class="summary-note"><img src="assets/info.svg" alt=""><span id="total-note">Esta propuesta aún no está incluida.</span></div>
+        </section>
+      </header>
+      <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+      <section class="surface proposal" id="proposal-surface" aria-labelledby="proposal-heading">
+        <h2 id="proposal-heading">Propuesta de registro</h2>
+        <div class="transaction-heading"><h3 id="merchant">Almacén del Parque</h3><strong class="transaction-amount" id="amount">$28.500</strong></div>
+        <div class="transaction-meta"><time id="date" datetime="2026-10-22">22 oct 2026</time><span class="pending-state">Pendiente de revisión</span></div>
+        <form id="review-form">
+          <label for="category">Categoría</label>
+          <div class="select-wrap"><img src="assets/utensils.svg" alt=""><select name="category" id="category" aria-describedby="category-help"><option>Alimentación</option><option>Transporte</option><option>Compras</option><option>Sin categoría</option></select></div>
+          <p class="field-help" id="category-help"><img src="assets/info.svg" alt="">Categoría sugerida · Por confirmar</p>
+          <div class="actions"><button type="submit" class="primary">Aprobar registro</button><button type="button" id="ignore" class="secondary">Ignorar</button></div>
+        </form>
+      </section>
+      <section class="surface empty-state" id="empty-state" aria-labelledby="empty-heading" hidden>
+        <h2 id="empty-heading">Todo revisado</h2><p>No quedan propuestas pendientes.</p><button class="secondary" type="button" id="reset">Volver a la demostración</button>
+      </section>
+      <section class="surface evidence" aria-labelledby="evidence-heading">
+        <h2 id="evidence-heading">Evidencia estructurada</h2>
+        <dl>
+          <div><dt><span class="icon-disc"><img src="assets/store.svg" alt=""></span>Comercio</dt><dd>Almacén del Parque</dd></div>
+          <div><dt><span class="icon-disc"><img src="assets/dollar-sign.svg" alt=""></span>Monto</dt><dd>$28.500 CLP</dd></div>
+          <div><dt><span class="icon-disc"><img src="assets/credit-card.svg" alt=""></span>Cuenta</dt><dd>•••• 0421</dd></div>
+          <div><dt><span class="icon-disc"><img src="assets/file-text.svg" alt=""></span>Origen</dt><dd>Fuente simulada</dd></div>
+        </dl>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

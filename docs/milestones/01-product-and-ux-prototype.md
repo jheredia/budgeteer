@@ -1,11 +1,11 @@
 # M1 Product and UX prototype
 
-- Status: authorized; visual-direction checkpoint in progress
+- Status: paused for milestone-conversation handoff; representative surface source unverified
 - Owner: `m1_implementation` agent, coordinated by Budgeteer — Overseer (Cloud)
 - Branch: `codex/m1-product-ux-prototype`
 - Dependency: M0 complete
 - Authorization: user explicitly requested M1 implementation and a new agent on 2026-10-23. Manual Project-item creation has not been confirmed; this explicit instruction authorizes the start without asserting that setup occurred.
-- Visual approval: pending; no application scaffold or broad UI implementation may begin before selection.
+- Visual selection: user chose option 2 and requested Budgeteer's mostly green colors on 2026-10-23. Implementation is limited to one representative responsive review surface; approval of that implemented surface remains pending before broad UI work.
 
 ## Demonstrable outcome
 
@@ -26,7 +26,7 @@ The Overseer completed contention and supplied this list. All entries use relati
 - Priority High; Size M; Estimate 3; Dependencies none.
 - Outcome: coherent Spanish (Chile) foundation.
 - Acceptance: select one of three generated visual directions; produce one representative mobile and desktop surface for user approval before broad UI implementation; define navigation across all five journeys and one shared resettable in-memory contract separating proposals, canonical entries, and minimized evidence; specify CLP, timezone, keyboard behavior, and visible focus.
-- Status: three [generated desktop/mobile visual options](../design/m1/README.md) ready for selection; no prototype code yet.
+- Status: option 2 selected with mostly green palette; generated green revision and representative review-surface source created. Official brand hex values are unavailable in tracked assets/docs or historical starter code, so provisional green tokens are documented explicitly. Work paused before browser verification; visual approval remains pending.
 
 ### 2. Explore monthly spending and comparisons
 
@@ -63,7 +63,7 @@ The Overseer completed contention and supplied this list. All entries use relati
 
 All feature items depend only on item 1; their shared contract avoids cyclic dependencies. Final integration connects them. Launch instructions, responsive/keyboard checks and end-to-end verification belong to the milestone Definition of Done rather than item 6.
 
-- [ ] User selects initial generated visual direction.
+- [x] User selects initial generated visual direction (option 2, mostly green).
 - [ ] User approves representative implemented mobile and desktop surface before broad UI implementation.
 - [ ] One locally runnable prototype connects all approved journeys.
 - [ ] Synthetic in-memory state is shared consistently across every transaction and comparison.
@@ -81,12 +81,12 @@ All feature items depend only on item 1; their shared contract avoids cyclic dep
 - Single Overseer: Cloud Overseer accepted coordination; outgoing local Overseer retired. See [handoff](../overseer-handoff.md).
 - Product Design index requires exactly three visual options and user selection before scaffolding when no visual target exists. Initial concepts explore overview-first, review-first and ledger-first hierarchy; each includes desktop and mobile treatments. They contain only synthetic structured illustrative data.
 - No saved Product Design context or local visual assets were present. The referenced shared critical-overrides resource could not be read through the skill provider; no user-supplied visual reference was omitted.
-- Prototype tooling remains undecided. A dependency-free local HTML/CSS/JS implementation is a reversible candidate, not a production stack decision.
-- Verification so far: starting worktree clean; no tracked `.eml`/`.emlx` paths; safe `git check-ignore` confirms both extensions ignored. No application behavior has been verified.
+- Prototype-only tooling: dependency-free HTML/CSS/JS and Node static file server in `prototype/`, not a production-stack decision. Only the representative review surface is in source; other journeys are not implemented.
+- Verification so far: JavaScript syntax and whitespace checks passed; no tracked `.eml`/`.emlx` paths; safe `git check-ignore` confirms both extensions ignored. Startup failed with sandbox `listen EPERM` on both wildcard and loopback port 4173. No app behavior, responsive rendering, keyboard operation or browser console has been verified; root `design-qa.md` is blocked.
 
 ## Current handoff and exact next action
 
-Present the three [generated visual directions](../design/m1/README.md) in their recorded display order and ask the user to choose one. Do not scaffold or start a server before selection. After selection, implement and verify one representative mobile/desktop surface and return to the user for the retained visual approval checkpoint before broad UI implementation.
+Work is paused by the Overseer to resolve the user's separate visible milestone-conversation requirement. The current agent is a subagent of the Overseer chat, not a separate user-visible milestone conversation. Preserve the branch and handoff; do not resume code, server or browser work until the Overseer releases it after coordination is resolved. Then resolve sandbox server permissions, verify only the representative surface, and return for visual approval before broad UI implementation. See `prototype/README.md` and root `design-qa.md`.
 
 No Project item status has been changed. M1 remains in progress, not review-ready or complete.
 
@@ -95,3 +95,4 @@ No Project item status has been changed. M1 remains in progress, not review-read
 | Date | Change | Owner |
 | --- | --- | --- |
 | 2026-10-23 | Recovered proposal and handoff records; recorded explicit implementation authorization, user-authorized base exception, finalized item list and visual checkpoint. | M1 agent under Cloud Overseer |
+| 2026-10-23 | Recorded option 2 selection and mostly green constraint; generated green revision and representative source; paused after startup permission failures for separate milestone-chat handoff. | M1 agent under Cloud Overseer |
