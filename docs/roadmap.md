@@ -18,8 +18,8 @@ GitHub Project mutations remain manual unless the user explicitly authorizes a d
 
 | Milestone | Vertical outcome | Dependencies | Status | Task or thread |
 | --- | --- | --- | --- | --- |
-| M0 | Safe, governed repository | None | Complete; user approved and locally integrated 2026-10-22 | `codex/m0-governance-corrections`; Overseer task: Budgeteer — Overseer |
-| M1 | Reviewable interactive product and UX prototype using synthetic data | M0 | Planned | Not assigned |
+| M0 | Safe, governed repository | None | Complete; user approved 2026-10-22 and published to `origin/master` 2026-10-23 | `codex/m0-governance-corrections`; Overseer task: Budgeteer — Overseer |
+| M1 | Reviewable interactive product and UX prototype using synthetic data | M0 | Proposal ready; awaiting Overseer decision and manual Project setup | Proposal prepared by Budgeteer M1 — Product & UX Prototype; ownership transfers to the Cloud Overseer |
 | M2 | First usable local app: import an authorized local email, review it, and see the ledger and totals; includes all technical setup | M1 | Planned | Not assigned |
 | M3 | Working dedicated-inbox synchronization with idempotency and recovery | M2 | Planned | Not assigned |
 | M4 | Working categorization, duplicate handling, card-payment and refund handling, and internal-transfer matching | M3 | Planned | Not assigned |
@@ -27,4 +27,4 @@ GitHub Project mutations remain manual unless the user explicitly authorizes a d
 | M6 | Working multi-member workspaces and permissions, with solo use still valid | M5 | Planned | Not assigned |
 | M7 | Deployed, monitored, recoverable production release | M6 | Planned | Not assigned |
 
-M0 is integrated into local `master`; no GitHub push is authorized. No real, redacted, or synthetic email files may be committed or pushed. Parser tests must construct synthetic messages in memory at test runtime or use non-email structured unit inputs. Future milestone packets must explicitly approve their scope, acceptance checks, and any required sensitive-data access. Statuses describe the actual state of work; task or thread identifiers are added only when known.
+M0 is integrated into `master` and published to GitHub after explicit user authorization. No real, redacted, or synthetic email files may be committed or pushed. Parser tests must construct synthetic messages in memory at test runtime or use non-email structured unit inputs. Future milestone packets must explicitly approve their scope, acceptance checks, and any required sensitive-data access. Statuses describe the actual state of work; task or thread identifiers are added only when known.
