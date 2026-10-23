@@ -22,6 +22,15 @@ GitHub Project creation and status management are manual unless the user explici
 
 Repository documents and commits are canonical memory. Chat is coordination context, not a substitute for updating the repository record.
 
+## Agent coordination and task boundaries
+
+The active user task is the complete usable prototype, coordinated in this Overseer chat. Milestones use internal agents that communicate directly with the Overseer; separate sidebar chats are optional for new tasks, not required per milestone. Never assume another chat shares this filesystem or can send messages. Do not require the user to relay routine agent coordination.
+
+Each milestone retains a dedicated branch. Run one writer per file set; concurrent writers require isolated worktrees and explicit ownership. Agents report scope, commits, verification, blockers, and exact next actions directly to the Overseer and in committed milestone records. The Overseer reviews delivery and reports which manual Project items are ready for review. User acceptance, merges, and publication remain separate actions; no push is implied by local implementation authorization.
+
+User decisions are required for material scope/architecture changes, selected visual direction, and final acceptance. Routine reversible implementation and technical recovery within the approved packet proceed autonomously. A latest explicit user authorization can release implementation without asserting that manual Project setup occurred; record the exception precisely. For M1, option 2 with mostly green colors is selected and the latest instruction authorizes continuation through a usable prototype in this chat. Do not reintroduce the resolved separate-chat pause. Report the design skills used before marking M1 complete.
+
+
 ## Milestone Definition of Done
 
 A milestone remains in progress unless it delivers a demonstrable, coherent, usable outcome. Scaffolding, a schema alone, disconnected components, or a partially implemented flow do not complete a milestone. Code milestones must keep the app runnable, preserve completed workflows, deliver the new journey end-to-end, persist data correctly, and pass acceptance checks. Design milestones must produce a reviewable interactive prototype. M0 produces a safe, operationally governed repository.
