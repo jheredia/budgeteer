@@ -1,10 +1,10 @@
 # M2 Local import, review, and persistent ledger
 
-- Status: runtime approved; architecture independently reviewed and ready for user architecture review; application implementation not released.
+- Status: runtime approved; architecture independently reviewed and Overseer-approved; common M2 implementation released, provider/adoption gates remain.
 - Owner: internal `m2_proposal` agent under the single Cloud Overseer.
 - Branch: `codex/m2-local-app`, based on accepted M1 history at `ba36146`; M1 is unmerged to `master`.
 - Dependency: M1 accepted on 2026-10-23.
-- Authorization: the user approved Node.js/TypeScript/SQLite, authorized architectural design/review before implementation, and required basic authentication/shared membership. They will add board items; creation is not yet confirmed. No application implementation, real-email agent access, production deployment, Project mutation or merge is authorized before the architecture gate. Proposal/design branch publication uses the established GitHub synchronization workflow.
+- Authorization: the user approved Node.js/TypeScript/SQLite, authorized architectural design/review before implementation, and required basic authentication/shared membership. They will add board items; creation is not yet confirmed. The requested architecture gate is complete; the Overseer releases common infrastructure, authentication/shared-workspace and review/ledger implementation under the user's explicit instruction to start. This is an implementation-start exception without claiming board creation. No real-email agent access, production deployment, Project mutation or merge is authorized. Proposal/design branch publication uses the established GitHub synchronization workflow.
 
 ## Demonstrable outcome
 
@@ -18,14 +18,14 @@ Exclude Gmail/mailbox access, provider credentials, synchronization, production 
 
 ## Overseer-reviewed Project item list
 
-The six application items below are revised after user feedback, with an added architecture checkpoint (item 0). Runtime/store are approved; architecture/library/auth-policy details require the review gate. This is not confirmation that Project items exist. Estimates are relative points; item 1 expands from M/5 to L/13 for authentication and shared membership.
+The six application items below are revised after user feedback, with an added architecture checkpoint (item 0). Runtime/store are approved; architecture/library/auth-policy details have passed independent/Overseer design review and require actual compatibility/adoption tests before reliance. This is not confirmation that Project items exist. Estimates are relative points; item 1 expands from M/5 to L/13 for authentication and shared membership.
 
 ### 0. Design and review the shared application architecture
 
 - Priority High; Size M; Estimate 3; Dependencies none.
 - Outcome: the implementation has a reviewable structure and explicit access/data boundaries before code is written.
-- Acceptance: document module dependencies, HTTP/service/repository contracts, authentication/membership, shared-server topology, migrations/transactions, privacy/lifecycle and SQLite scaling limits; complete independent review, address blocking findings, and obtain user architecture review before application implementation.
-- Status: [architecture](../design/m2-architecture.md) and [independent review](../design/m2-architecture-review.md) are ready. No application code changed.
+- Acceptance: document module dependencies, HTTP/service/repository contracts, authentication/membership, shared-server topology, migrations/transactions, privacy/lifecycle and SQLite scaling limits; complete independent review, address blocking findings, and obtain explicit Overseer release under the user's design-before-implementation instruction.
+- Status: [architecture](../design/m2-architecture.md) and [independent review](../design/m2-architecture-review.md) passed independent review and Overseer review. The common implementation phase is now released; no application code existed at this architecture checkpoint.
 
 ### 1. Sign in to a persistent shared workspace
 
@@ -67,16 +67,16 @@ Dependencies are acyclic: 0 → 1 → 2; 2 → 3 and 4; 4 → 5; 2+3 → 6. Revi
 
 All sizes/estimates are provisional: actual provider formats and the number of applicable variants are unknown. Revise the estimate with the user if approved contracts require substantially different work; do not claim that sixteen variants are already known or supported.
 
-- Overseer decision: revised application scope plus architecture checkpoint ready for manual planning. Architectural structure passed independent review; user architecture review, library adoption checks and provider contracts still gate their respective work. User Project setup remains unconfirmed; application implementation is not released.
+- Overseer decision: revised application scope plus architecture checkpoint ready for manual planning. Architectural structure passed independent review; independent/Overseer review is complete; library adoption checks and provider contracts gate their respective work. User Project setup remains unconfirmed; the user's explicit start instruction releases common implementation after the architecture gate without claiming setup occurred.
 - User Project setup: pending; all creation/status changes remain manual.
 
 ## Decision status and architecture gate
 
-Node.js/TypeScript/SQLite are approved (ADR 0004). Basic authentication and shared membership are required now. The user accepted financial retention with the correction that ignored data is discarded entirely. The architecture has passed independent review; detailed auth/membership mechanisms remain proposed until user architecture review. See [design](../design/m2-architecture.md) and [review](../design/m2-architecture-review.md).
+Node.js/TypeScript/SQLite are approved (ADR 0004). Basic authentication and shared membership are required now. The user accepted financial retention with the correction that ignored data is discarded entirely. The architecture has passed independent review; the Overseer approves the documented password-first and minimal owner/member design within the requested scope, subject to actual library compatibility and credential-protection proof. See [design](../design/m2-architecture.md) and [review](../design/m2-architecture-review.md).
 
 ### Runtime, access model and operating boundary
 
-Use approved Node.js/TypeScript and SQLite. The reviewed design recommends a modular monolith, Fastify transport, a maintained MIME parser, feature-oriented browser modules, typed application services and workspace-scoped repository adapters. Fastify and Better Auth password-first are proposed library choices, not installed dependencies. Google OIDC is an identity-only alternative/extension, not a requirement to implement both or request Gmail scopes. No production hosting provider is selected.
+Use approved Node.js/TypeScript and SQLite. The reviewed design recommends a modular monolith, Fastify transport, a maintained MIME parser, feature-oriented browser modules, typed application services and workspace-scoped repository adapters. Fastify and Better Auth password-first are reviewed library candidates released for compatibility-proven adoption, not yet installed dependencies. Google OIDC is an identity-only alternative/extension, not a requirement to implement both or request Gmail scopes. No production hosting provider is selected.
 
 The prior one-OS-user/no-auth product model is superseded. One host OS account operates the app; individually authenticated application accounts share workspace rows via basic membership policies. Default local development stays loopback-only. Real members on separate devices access one explicitly configured HTTPS reverse proxy/app/database, with Host/Origin/CSRF/cookie/proxy-trust controls. This design does not automatically open a LAN port, configure a proxy or provision production hosting.
 
@@ -113,7 +113,7 @@ Exact-input replay protection is not anonymization: fingerprints are sensitive d
 
 - [x] User approved Node.js/TypeScript/SQLite; accepted ADR 0004 records the scope.
 - [x] Architectural design and independent review completed; blocking review findings addressed.
-- [ ] User architecture review and explicit application implementation release.
+- [x] Independent/Overseer architecture review and explicit common application implementation release under the user's instruction to start.
 - [ ] Two independently authenticated members contribute/read shared records; nonmembers are denied across all APIs and repository paths.
 - [ ] Reviewed trust, auth/session, schema, membership and lifecycle controls pass actual pinned-library and isolation tests.
 - [ ] Requested provider/type matrix and deterministic recognition contracts are resolved without agent email access; unsupported/not-applicable gaps require explicit user agreement.
@@ -139,10 +139,10 @@ Architecture/documentation only. Canonical documents, module/data boundaries and
 ## Current state and handoff
 
 - Branch/base: `codex/m2-local-app` from `ba36146` in the dedicated `/workspace/budgeteer-m2-proposal` worktree.
-- Project items: six revised application items plus architecture item 0; user says they will add items, creation remains unconfirmed. Architecture/user review and implementation release remain pending.
+- Project items: six revised application items plus architecture item 0; user says they will add items, creation remains unconfirmed. Independent/Overseer architecture review is complete and common implementation is released; provider/adoption gates remain.
 - Changed files: milestone/governance/product/security/architecture records and accepted runtime ADR, architecture design and independent review; no application files changed.
 - Verification: proposal/document checks only; no implementation or sensitive-data access.
-- Exact next action: publish the independently reviewed architecture and corrected M2 item list for the user architecture review. Record board readiness when confirmed. Release application work only after that architecture gate; verify auth-library behavior before adoption, and provider contracts before claiming each adapter. No raw email access is authorized for agents. User acceptance of the runtime and instruction to start architecture work do not skip architectural review.
+- Exact next action: publish the independently reviewed architecture and corrected M2 item list, and implement the common app under the completed architecture gate. Record board readiness when confirmed; verify auth-library behavior before adoption and provider contracts before claiming each adapter. No raw email access is authorized for agents. User acceptance of the runtime and instruction to start architecture work do not skip architectural review.
 
 ## Change log
 

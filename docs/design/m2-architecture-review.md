@@ -4,7 +4,7 @@
 - Author: internal `m2_proposal` architect; independent reviewer: internal `m2_arch_review`; coordinating reviewer: Cloud Overseer.
 - Design: [M2 architecture](m2-architecture.md).
 - Reviewed revisions: initial architecture `3a48500`; fixes `beae699`; final unambiguous polling wording checked by Overseer.
-- Result: passed architectural review; no remaining blocking P1/P2 design findings. User architecture review is pending. Application implementation has not begun.
+- Result: passed architectural review; no remaining blocking P1/P2 design findings. At the time of review, application implementation had not begun. The Overseer subsequently approved the reviewed structure and released common implementation under the user's instruction to start after architectural design/review; no new user approval gate is inferred.
 
 ## Review scope
 
@@ -22,13 +22,13 @@ The reviewer accepted module separation, server-derived actors, workspace-scoped
 
 ## Preconditions and verification limits
 
-- Node.js/TypeScript/SQLite are approved in [ADR 0004](../adr/0004-m2-local-runtime-and-store.md). Fastify, Better Auth/password-first, minimal owner/member rules and detailed auth lifecycle are recommendations for user architecture review.
+- Node.js/TypeScript/SQLite are approved in [ADR 0004](../adr/0004-m2-local-runtime-and-store.md). Fastify, Better Auth/password-first, minimal owner/member rules and detailed auth lifecycle are recommendations now approved by the Overseer for compatibility-proven implementation under the user's required password-or-Google authentication scope.
 - Pin and verify actual auth-library/version/SQLite integration, password handling, session revocation/expiry, invitation signup guard, session-token storage and credential-at-rest/key management before adoption. Do not claim maintained-library features by assumption or invent cryptography to patch incompatibility.
 - Shared-device operation requires explicitly configured HTTPS proxy/origin/network reachability and protected server-local storage. Local two-browser tests cannot prove remote reachability, certificate trust or secure deployment. No deployment/provider setup is authorized here.
 - Provider notification contracts/examples remain forthcoming. Names and synthetic templates alone do not prove actual provider support. Agents still have no permission to open real email.
 - The planned browser, tenant-isolation, transaction, privacy, concurrency, retention and failure tests have not run: there is no M2 implementation. A review pass is not a security audit, performance benchmark or production-readiness claim.
-- The user will add board items; readiness has not been confirmed. Before coding, resolve user architecture review and explicit release. No Project mutation or default-branch merge occurred.
+- The user will add board items; readiness has not been confirmed. Before coding, complete the requested independent architectural review and explicit Overseer release; those are now recorded in the milestone. No Project mutation or default-branch merge occurred.
 
 ## Exact continuation
 
-Present the design and seven revised planning items (architecture checkpoint plus six application items) to the user. On architecture approval and implementation release, implement the reviewed boundaries and prove library compatibility before relying on it. Obtain actual non-email provider contracts before claiming adapters. Keep the canonical milestone record current and report to the Overseer directly.
+Present the design and seven revised planning items (architecture checkpoint plus six application items) to the user. With independent review and Overseer release complete, implement the reviewed boundaries and prove library compatibility before relying on it. Obtain actual non-email provider contracts before claiming adapters. Keep the canonical milestone record current and report to the Overseer directly.

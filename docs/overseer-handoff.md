@@ -98,3 +98,8 @@ The user agreed to remove ignored data; no ignored financial/evidence/replay mar
 ## M2 architecture review result
 
 Architecture design and independent review are complete in `docs/design/m2-architecture.md` and `docs/design/m2-architecture-review.md`. Two design gaps (slow upload lifetime and browser revocation detection) were corrected, as was direct-signup boundary enforcement. Independent review reports no blocking design findings; user architecture review remains pending. ADR 0004 records only the approved Node.js/TypeScript/SQLite choice. No application code changed or library was installed. Publish this review package and updated board titles/estimates; do not start coding before the requested architecture gate. Basic sharing is in M2 and M6 is now advanced permissions/lifecycle.
+
+
+## Common M2 implementation release after architecture review
+
+The user asked that architecture be made and reviewed before implementation; they did not explicitly require another user-confirmation turn after internal review. Independent review passed and the Overseer reviewed/approved the corrected structure. Under the same explicit instruction to start work, common M2 implementation is now released: authentication/library proof, shared-workspace infrastructure and durable review/ledger boundaries. No user approval of every exact document detail or confirmed board creation is asserted. Earlier pending user-review wording is superseded by this release; provider contracts and credential/shared-operation checks still gate their corresponding work. No code is released for fabricated provider support or real-email agent access.

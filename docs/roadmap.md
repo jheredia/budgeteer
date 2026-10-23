@@ -20,7 +20,7 @@ GitHub Project mutations remain manual unless the user explicitly authorizes a d
 | --- | --- | --- | --- | --- |
 | M0 | Safe, governed repository | None | Complete; user approved 2026-10-22 and published to `origin/master` 2026-10-23 | `codex/m0-governance-corrections`; Overseer task: Budgeteer — Overseer |
 | M1 | Reviewable interactive product and UX prototype using synthetic data | M0 | Complete; user accepted local review 2026-10-23; published on milestone branch | Cloud Overseer; `m1_implementation` subagent on `codex/m1-product-ux-prototype` |
-| M2 | First usable authenticated shared-workspace app: import an authorized local email, review it, and see persistent shared ledger/totals; includes technical setup and reviewed architecture | M1 | Runtime approved; architecture design/independent review authorized before implementation; revised Project setup pending | `codex/m2-local-app`; internal proposal agent under Cloud Overseer |
+| M2 | First usable authenticated shared-workspace app: import an authorized local email, review it, and see persistent shared ledger/totals; includes technical setup and reviewed architecture | M1 | Architecture independently reviewed/Overseer approved; common implementation released; provider/adoption gates and Project readiness pending | `codex/m2-local-app`; internal proposal agent under Cloud Overseer |
 | M3 | Working dedicated-inbox synchronization with idempotency and recovery | M2 | Planned | Not assigned |
 | M4 | Working categorization, duplicate handling, card-payment and refund handling, and internal-transfer matching | M3 | Planned | Not assigned |
 | M5 | Working evidence-backed financial insights | M4 | Planned | Not assigned |
