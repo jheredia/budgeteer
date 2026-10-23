@@ -4,7 +4,7 @@ Budgeteer is a privacy-conscious personal finance product that tracks and catego
 
 ## Current status
 
-M0 is accepted, complete, and integrated into local `master`, with user approval on 2026-10-22. No GitHub push is authorized, and the project has not been released. No application code or persistent data model has been approved or scaffolded. The M0 record is in `docs/milestones/00-governance-and-groundwork.md`.
+M0 is accepted, complete, and published to `origin/master`, with user approval on 2026-10-22 and explicit push authorization on 2026-10-23. The project has not been released. M1 implementation was explicitly authorized on 2026-10-23 and is at its initial visual-direction checkpoint: three generated concepts await selection, with no application scaffold or persistent data model introduced. The approved scope, checkout exception, and next action are recorded in `docs/milestones/01-product-and-ux-prototype.md` and `docs/overseer-handoff.md`.
 
 ## Canonical documentation read order
 
@@ -12,7 +12,8 @@ M0 is accepted, complete, and integrated into local `master`, with user approval
 2. Accepted ADRs in `docs/adr/`
 3. The applicable milestone file in `docs/milestones/`
 4. `docs/product.md`, `docs/architecture.md`, and `docs/security-and-privacy.md`
-5. `docs/roadmap.md` and informal handoff notes
+5. `docs/roadmap.md`
+6. `docs/overseer-handoff.md` and informal handoff notes
 
 When sources conflict, follow the authority order in `AGENTS.md`; do not silently reconcile a conflict.
 
