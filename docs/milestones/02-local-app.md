@@ -1,10 +1,10 @@
 # M2 Local import, review, and persistent ledger
 
-- Status: proposal draft; awaiting Overseer contention and user decisions.
+- Status: Overseer contention complete; reviewed proposal ready for user decisions and manual Project setup; implementation unauthorized.
 - Owner: internal `m2_proposal` agent under the single Cloud Overseer.
 - Branch: `codex/m2-local-app`, based on accepted M1 history at `ba36146`; M1 is unmerged to `master`.
 - Dependency: M1 accepted on 2026-10-23.
-- Authorization: proposal preparation only. No implementation, real-email access, production-stack selection, Project mutation, push, or merge is authorized.
+- Authorization: proposal preparation only. No implementation, real-email access, production-stack selection, Project mutation, or merge is authorized. The Overseer may publish this proposal branch under the user-authorized GitHub branch synchronization workflow; publication does not authorize implementation.
 
 ## Demonstrable outcome
 
@@ -16,9 +16,9 @@ Preserve M1's accepted review-first green design, generic workspace language, Sp
 
 Exclude Gmail/mailbox access, provider credentials, synchronization, production hosting, multi-member authorization, production insights, semantic duplicate matching/reconciliation, refund handling, card-bill payment handling, transfer matching, and automatic provider-mail deletion. No real, redacted, or synthetic email file may enter Git. Tests construct messages in memory at runtime.
 
-## Project item proposal
+## Overseer-reviewed Project item list
 
-These are candidates, not approved Project items. Estimates are relative points.
+The six-item decomposition below passed Overseer contention. These are planning items for manual creation, not confirmation that Project items exist or that technical/data decisions are approved. Estimates are relative points.
 
 ### 1. Open a persistent local workspace
 
@@ -40,9 +40,9 @@ These are candidates, not approved Project items. Estimates are relative points.
 
 ### 4. Review and decide an imported transaction
 
-- Priority High; Size L; Estimate 8; Depends on items 2 and 3.
-- Outcome: the user inspects uncertainty and evidence, confirms or corrects category/type/direction, and approves or ignores deliberately.
-- Acceptance: distinguish proposed values from supporting evidence; unavailable fields stay explicit. For direction, offer confirmed incoming/outgoing or explicitly unresolved rather than guessing a financial meaning. Approval creates exactly one canonical record and evidence reference, removing pending state in one durable transaction; repeated clicks/retries cannot approve twice. Ignore creates no canonical entry and removes minimized proposal/evidence according to the approved policy, retaining only the bounded replay marker. A failure/restart cannot leave a half-approved record. Evidence is never silently rewritten to match a review decision.
+- Priority High; Size L; Estimate 8; Depends on item 2.
+- Outcome: the user inspects uncertainty and evidence, confirms or corrects the proposed record, and approves or ignores deliberately.
+- Acceptance: distinguish proposed values from supporting evidence; unavailable fields stay explicit. Allow correction of merchant/counterparty label, amount, date, category, type and direction before approval, validating required fields and positive integer CLP amounts. For direction, offer confirmed incoming/outgoing or explicitly unresolved rather than guessing a financial meaning. Approval creates exactly one canonical record and evidence reference, removing pending state in one durable transaction; repeated clicks/retries cannot approve twice. Ignore creates no canonical entry and removes minimized proposal/evidence according to the approved policy, retaining only the bounded replay marker. A failure/restart cannot leave a half-approved record. Evidence is never silently rewritten to match a review decision.
 
 ### 5. Explore the saved ledger and notification summaries
 
@@ -54,13 +54,13 @@ These are candidates, not approved Project items. Estimates are relative points.
 
 - Priority Medium; Size M; Estimate 3; Depends on items 2 and 3.
 - Outcome: the user understands provider coverage, retained local data, and deliberate local data removal.
-- Acceptance: source status says manual local import with no mailbox connection/sync; show actual supported provider/type families and safe unsupported outcomes without retaining original filenames. Explain raw-input minimization, no permanent raw-email archive, and no provider deletion. Implement the explicitly approved retention/deletion policy with confirmation before deleting the local workspace; closing/refreshing/restarting or a demo reset must not delete saved records. State that local deletion leaves the original file/provider mail untouched and does not promise secure erasure from OS/backups.
+- Acceptance: source status says manual local import with no mailbox connection/sync; show actual supported provider/type families and safe unsupported outcomes without retaining original filenames. Explain raw-input minimization, no permanent raw-email archive, and no provider deletion. Disclose pending-record expiry and implement the explicitly approved retention/deletion policy with confirmation before deleting the local workspace; closing/refreshing/restarting or a demo reset must not delete saved records. State that local deletion leaves the original file/provider mail untouched and does not promise secure erasure from OS/backups.
 
-Dependencies are acyclic: 1 → 2 → 3 → 4 → 5; 2+3 → 6. Shared persistence/state contracts belong to item 1; item 2 owns the common import pipeline and first provider pair, item 3 owns the other pair, item 4 owns review decisions, item 5 owns read views, and item 6 owns coverage/data disclosure and deletion. End-to-end setup/restart/recovery, responsive, keyboard, and privacy verification belong to the milestone Definition of Done below, not a verification-only Project item.
+Dependencies are acyclic: 1 → 2; 2 → 3 and 4; 4 → 5; 2+3 → 6. Review does not wait for the second provider group; the final milestone acceptance pass integrates all six items. Shared persistence/state contracts belong to item 1; item 2 owns the common import pipeline and first provider pair, item 3 owns the other pair, item 4 owns review decisions, item 5 owns read views, and item 6 owns coverage/data disclosure and deletion. End-to-end setup/restart/recovery, responsive, keyboard, and privacy verification belong to the milestone Definition of Done below, not a verification-only Project item.
 
-All sizes/estimates are provisional: actual provider formats and the number of applicable variants are unknown. Re-estimate before final Project setup if approved contracts require substantially different work; do not claim that sixteen variants are already known or supported.
+All sizes/estimates are provisional: actual provider formats and the number of applicable variants are unknown. Revise the estimate with the user if approved contracts require substantially different work; do not claim that sixteen variants are already known or supported.
 
-- Overseer decision: pending.
+- Overseer decision: item scope/decomposition reviewed and amended; ready for manual planning. Technical/data decisions below and user Project setup remain pending; implementation is not released.
 - User Project setup: pending; all creation/status changes remain manual.
 
 ## Proposed decisions requiring approval
@@ -86,7 +86,7 @@ The user explicitly requested Banco de Chile, Banco Santander, Banco Estado and 
 | Banco Estado | Contract pending | Contract pending | Contract pending | Contract pending |
 | MercadoPago | Contract pending | Contract pending | Contract pending | Contract pending |
 
-Before implementation, resolve each cell to an approved supported notification-family contract or a user-approved not-applicable/unsupported status. A provider-specific family can have several versions, and names alone do not establish sixteen actual formats. Do not invent a bank format or silently narrow to one provider/type to fit an estimate. Obtain a non-email structured description of recognition labels, field meanings and date/amount conventions, or suitable public documentation. No raw or redacted message is requested or authorized for agent inspection. If a contract cannot be established, escalate the specific coverage gap before claiming real-world support. Construct test MIME in memory from approved contracts. Sender strings do not establish authenticity; do not invoke an LLM on raw messages or guess missing amount/date/currency.
+Before implementing or claiming an adapter for a cell, resolve it to an approved supported notification-family contract or a user-approved not-applicable/unsupported status. Infrastructure and common review work can be released separately once their packet decisions are approved; unresolved cells still block complete M2 acceptance. A provider-specific family can have several versions, and names alone do not establish sixteen actual formats. Do not invent a bank format or silently narrow to one provider/type to fit an estimate. Obtain a non-email structured description of recognition labels, field meanings and date/amount conventions, or suitable public documentation. No raw or redacted message is requested or authorized for agent inspection. If a contract cannot be established, escalate the specific coverage gap before claiming real-world support. Construct test MIME in memory from approved contracts. Sender strings do not establish authenticity; do not invoke an LLM on raw messages or guess missing amount/date/currency.
 
 Proposed interpretation, requiring user approval: Debit means an account-debit notification whose cause is not automatically an expense; Received Payment means a received-payment notification whose receipt is not automatically income; Credit Card Purchase means a purchase notification whose amount is separate from bank-account cash flow; Bank Transfer means a transfer notification with incoming/outgoing/unresolved direction, without automatically classifying its economic purpose or matching another record. Keep the positive CLP amount, requested notification type and confirmed/unknown direction separate; unknown direction is excluded from directional totals and visibly counted as unresolved. Categories are user-reviewed suggestions, not automated financial classification. Exact labels/mappings belong to the approved local data contract; M4 still owns semantic duplicate, transfer matching and advanced financial treatment.
 
@@ -126,13 +126,14 @@ Proposal only. Repository status and canonical documents reviewed; no app code, 
 ## Current state and handoff
 
 - Branch/base: `codex/m2-local-app` from `ba36146` in the dedicated `/workspace/budgeteer-m2-proposal` worktree.
-- Approved Project items: none. The six candidates above require Overseer contention and user Project setup.
+- Project items: six Overseer-reviewed planning items above; user creation remains unconfirmed. Technical/data decisions and implementation release remain pending.
 - Changed files: only this document.
 - Verification: proposal/document checks only; no implementation or sensitive-data access.
-- Exact next action: Overseer reviews/amends the six candidates and proposed decisions, resolves the provider/type contracts, financial direction semantics, and local-data choices with the user, then presents the final copyable M2 Project list. Implementation starts only after the applicable approval/setup/release gates. Do not infer release from M1 acceptance.
+- Exact next action: present the six reviewed planning items and proposed local runtime/data choices to the user for approval and manual Project creation. Resolve the provider/type contracts without agent access to real email; approve common infrastructure and each adapter at their relevant gates. Implementation starts only after the applicable approval/setup/release gates. Do not infer release from M1 acceptance or proposal publication.
 
 ## Change log
 
 | Date | Change | Owner |
 | --- | --- | --- |
 | 2026-10-23 | Prepared six-item local-app proposal covering four requested providers/types, explicit matrix/semantic/data-policy decision gates and end-to-end restart acceptance; no implementation authorized. | M2 proposal agent |
+| 2026-10-23 | Overseer completed contention: removed unnecessary second-provider dependency from review, required validated corrections with preserved evidence, and staged contract approval by adapter while preserving all requested coverage obligations. | Cloud Overseer |
