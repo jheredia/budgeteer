@@ -24,7 +24,7 @@ Repository documents and commits are canonical memory. Chat is coordination cont
 
 ## Agent coordination and task boundaries
 
-The active user task is the complete usable prototype, coordinated in this Overseer chat. Milestones use internal agents that communicate directly with the Overseer; separate sidebar chats are optional for new tasks, not required per milestone. Never assume another chat shares this filesystem or can send messages. Do not require the user to relay routine agent coordination.
+Project coordination remains in this Overseer chat. M1 is accepted; the current authorization is M2 proposal preparation only, until the user approves its packet and the Overseer releases implementation. Milestones use internal agents that communicate directly with the Overseer; separate sidebar chats are optional for new tasks, not required per milestone. Never assume another chat shares this filesystem or can send messages. Do not require the user to relay routine agent coordination.
 
 Each milestone retains a dedicated branch. Run one writer per file set; concurrent writers require isolated worktrees and explicit ownership. Agents report scope, commits, verification, blockers, and exact next actions directly to the Overseer and in committed milestone records. The Overseer reviews delivery and reports which manual Project items are ready for review. User acceptance, merges, and publication remain separate actions; no push is implied by local implementation authorization.
 
