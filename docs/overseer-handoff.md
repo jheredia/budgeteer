@@ -86,3 +86,15 @@ Next: an internal M2 proposal agent works on a dedicated M2 branch based on the 
 ## Current M2 proposal handoff
 
 The Overseer reviewed the M2 proposal in `docs/milestones/02-local-app.md` on `codex/m2-local-app`, based on accepted M1 history at `ba36146`. Scope includes the user's four providers (Banco de Chile, Banco Santander, Banco Estado, MercadoPago) and Debit, Received Payment, Credit Card Purchase, Bank Transfer notifications. The six planning items have outcomes, acceptance, relative estimates and an acyclic dependency graph. Runtime/storage/privacy decisions remain proposed, provider/type format contracts remain unresolved, and user Project creation is unconfirmed. No application code was changed. Next: user decisions and manual Project setup before explicit M2 implementation release; no agent real-email access, mailbox integration, default-branch merge, or Project mutation is authorized.
+
+
+## M2 architecture and sharing correction
+
+The user approved Node.js/TypeScript/SQLite, required architectural design and review before implementation, and rejected treating M2 as a personal one-OS-user/no-auth product. Basic password or Google sign-in plus shared-workspace membership move into M2; M6 retains advanced permissions/lifecycle work. Families/couples are supported use cases, while accepted generic workspace naming remains unchanged.
+
+The user agreed to remove ignored data; no ignored financial/evidence/replay marker may be retained. They expect provider examples to become available later; agents still have no real-email access and must not claim unverified formats. The user says they will add board items; creation is not yet confirmed. An internal architect owns `docs/design/m2-architecture.md`, a separate read-only reviewer challenges it, and the Overseer owns governance/scope reconciliation. No application code is authorized before the architecture gate.
+
+
+## M2 architecture review result
+
+Architecture design and independent review are complete in `docs/design/m2-architecture.md` and `docs/design/m2-architecture-review.md`. Two design gaps (slow upload lifetime and browser revocation detection) were corrected, as was direct-signup boundary enforcement. Independent review reports no blocking design findings; user architecture review remains pending. ADR 0004 records only the approved Node.js/TypeScript/SQLite choice. No application code changed or library was installed. Publish this review package and updated board titles/estimates; do not start coding before the requested architecture gate. Basic sharing is in M2 and M6 is now advanced permissions/lifecycle.
