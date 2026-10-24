@@ -81,3 +81,40 @@ The actual design skills used are Product Design index, Ideate, Image to Code, D
 On 2026-10-23 the user explicitly accepted M1 after local review and requested preparation of the M2 proposal. M1's verified deliverable `b3aef1e31bce4ee722529010248ff77bbd1b02ba` was already pushed to `codex/m1-product-ux-prototype` at the user's request; it remains unmerged. M1 is accepted/complete. Earlier pending-acceptance and unpushed snapshots above are superseded by this update.
 
 Next: an internal M2 proposal agent works on a dedicated M2 branch based on the accepted M1 history until integration is separately authorized. Scope is documentation/proposal only: no application implementation, production stack decision, real email access, mailbox connection, or Project mutation. The Overseer reviews the proposal and presents final copyable items for manual Project creation before M2 implementation authorization. No communication between sidebar chats or manual file transfers is required.
+
+
+## Current M2 proposal handoff
+
+The Overseer reviewed the M2 proposal in `docs/milestones/02-local-app.md` on `codex/m2-local-app`, based on accepted M1 history at `ba36146`. Scope includes the user's four providers (Banco de Chile, Banco Santander, Banco Estado, MercadoPago) and Debit, Received Payment, Credit Card Purchase, Bank Transfer notifications. The six planning items have outcomes, acceptance, relative estimates and an acyclic dependency graph. Runtime/storage/privacy decisions remain proposed, provider/type format contracts remain unresolved, and user Project creation is unconfirmed. No application code was changed. Next: user decisions and manual Project setup before explicit M2 implementation release; no agent real-email access, mailbox integration, default-branch merge, or Project mutation is authorized.
+
+
+## M2 architecture and sharing correction
+
+The user approved Node.js/TypeScript/SQLite, required architectural design and review before implementation, and rejected treating M2 as a personal one-OS-user/no-auth product. Basic password or Google sign-in plus shared-workspace membership move into M2; M6 retains advanced permissions/lifecycle work. Families/couples are supported use cases, while accepted generic workspace naming remains unchanged.
+
+The user agreed to remove ignored data; no ignored financial/evidence/replay marker may be retained. They expect provider examples to become available later; agents still have no real-email access and must not claim unverified formats. The user says they will add board items; creation is not yet confirmed. An internal architect owns `docs/design/m2-architecture.md`, a separate read-only reviewer challenges it, and the Overseer owns governance/scope reconciliation. No application code is authorized before the architecture gate.
+
+
+## M2 architecture review result
+
+Architecture design and independent review are complete in `docs/design/m2-architecture.md` and `docs/design/m2-architecture-review.md`. Two design gaps (slow upload lifetime and browser revocation detection) were corrected, as was direct-signup boundary enforcement. Independent review reports no blocking design findings; user architecture review remains pending. ADR 0004 records only the approved Node.js/TypeScript/SQLite choice. No application code changed or library was installed. Publish this review package and updated board titles/estimates; do not start coding before the requested architecture gate. Basic sharing is in M2 and M6 is now advanced permissions/lifecycle.
+
+
+## Common M2 implementation release after architecture review
+
+The user asked that architecture be made and reviewed before implementation; they did not explicitly require another user-confirmation turn after internal review. Independent review passed and the Overseer reviewed/approved the corrected structure. Under the same explicit instruction to start work, common M2 implementation is now released: authentication/library proof, shared-workspace infrastructure and durable review/ledger boundaries. No user approval of every exact document detail or confirmed board creation is asserted. Earlier pending user-review wording is superseded by this release; provider contracts and credential/shared-operation checks still gate their corresponding work. No code is released for fabricated provider support or real-email agent access.
+
+
+## Resume and PR stages — 2026-10-24
+
+M2 resumed at clean `31c32bd`; the prior worker stopped at a usage limit before app changes. The same internal worker has resumed common authentication/persistence under existing authorization. `docs/development-workflow.md` defines one PR per milestone and reviewed stage commits. M2 is temporarily stacked on accepted but unmerged M1: its eventual PR targets M1, then `master` after M1 merges. No PR/merge is asserted by this plan. Provider contracts and shared real-data verification retain their gates.
+
+
+## PR stack opened — 2026-10-24
+
+M1 PR #1 targets `master`; M2 draft PR #2 targets the M1 branch. URLs and staging rules are in `docs/development-workflow.md`. M1 branch commit `48de513` reconciles master history while preserving the exact accepted `ba36146` file tree. Neither PR was merged and the default branch is unchanged. M2 common-auth package/HTTP tests are being developed in `app/`; publication of app code follows its first verified checkpoint. No provider support or completed M2 is asserted.
+
+
+## First M2 code checkpoint — 2026-10-24
+
+The author delivered `47d0cb2`: maintained password authentication, protected setup, invitation enrollment and persistent workspace membership in `app/`. Independent Overseer TypeScript/six-node-test/real-Chromium checks passed, including restart, nonmember denial, logout, form preservation and late-response isolation. The root README and milestone record now distinguish this partial checkpoint from the untouched M1 prototype and remaining M2 work. Publish it to draft PR #2. No provider parser, financial-ledger journey, shared real-data readiness, complete M2 or default-branch merge is claimed. User Project statuses remain manual.
