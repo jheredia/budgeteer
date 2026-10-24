@@ -103,3 +103,8 @@ Architecture design and independent review are complete in `docs/design/m2-archi
 ## Common M2 implementation release after architecture review
 
 The user asked that architecture be made and reviewed before implementation; they did not explicitly require another user-confirmation turn after internal review. Independent review passed and the Overseer reviewed/approved the corrected structure. Under the same explicit instruction to start work, common M2 implementation is now released: authentication/library proof, shared-workspace infrastructure and durable review/ledger boundaries. No user approval of every exact document detail or confirmed board creation is asserted. Earlier pending user-review wording is superseded by this release; provider contracts and credential/shared-operation checks still gate their corresponding work. No code is released for fabricated provider support or real-email agent access.
+
+
+## Resume and PR stages — 2026-10-24
+
+M2 resumed at clean `31c32bd`; the prior worker stopped at a usage limit before app changes. The same internal worker has resumed common authentication/persistence under existing authorization. `docs/development-workflow.md` defines one PR per milestone and reviewed stage commits. M2 is temporarily stacked on accepted but unmerged M1: its eventual PR targets M1, then `master` after M1 merges. No PR/merge is asserted by this plan. Provider contracts and shared real-data verification retain their gates.

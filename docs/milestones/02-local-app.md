@@ -1,7 +1,7 @@
 # M2 Local import, review, and persistent ledger
 
 - Status: runtime approved; architecture independently reviewed and Overseer-approved; common M2 implementation released, provider/adoption gates remain.
-- Owner: internal `m2_proposal` agent under the single Cloud Overseer.
+- Owner: internal `m2_implementation` agent under the single Cloud Overseer; proposal/architecture and independent review delivered by separate internal agents.
 - Branch: `codex/m2-local-app`, based on accepted M1 history at `ba36146`; M1 is unmerged to `master`.
 - Dependency: M1 accepted on 2026-10-23.
 - Authorization: the user approved Node.js/TypeScript/SQLite, authorized architectural design/review before implementation, and required basic authentication/shared membership. They will add board items; creation is not yet confirmed. The requested architecture gate is complete; the Overseer releases common infrastructure, authentication/shared-workspace and review/ledger implementation under the user's explicit instruction to start. This is an implementation-start exception without claiming board creation. No real-email agent access, production deployment, Project mutation or merge is authorized. Proposal/design branch publication uses the established GitHub synchronization workflow.
@@ -151,3 +151,8 @@ Architecture/documentation only. Canonical documents, module/data boundaries and
 | 2026-10-23 | Prepared six-item local-app proposal covering four requested providers/types, explicit matrix/semantic/data-policy decision gates and end-to-end restart acceptance; no implementation authorized. | M2 proposal agent |
 | 2026-10-23 | Overseer completed contention: removed unnecessary second-provider dependency from review, required validated corrections with preserved evidence, and staged contract approval by adapter while preserving all requested coverage obligations. | Cloud Overseer |
 | 2026-10-23 | User approved runtime/store, required reviewed architecture and basic authentication/shared membership in M2, and rejected retained ignored data. Added architecture checkpoint, revised item 1, and reconciled M6 scope. | Cloud Overseer |
+
+
+## Staged continuation — 2026-10-24
+
+The worktree resumed clean at `31c32bd`. The initial implementation attempt stopped at a usage limit before application code was written. Common work has resumed with maintained-auth/SQLite compatibility and shared-workspace persistence. See [development workflow](../development-workflow.md) for one PR per milestone, temporary dependency stacking and stage checkpoints. Provider gates and final acceptance remain unchanged. No completed M2 feature is asserted by this continuation record.
