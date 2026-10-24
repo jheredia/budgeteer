@@ -108,3 +108,8 @@ The user asked that architecture be made and reviewed before implementation; the
 ## Resume and PR stages — 2026-10-24
 
 M2 resumed at clean `31c32bd`; the prior worker stopped at a usage limit before app changes. The same internal worker has resumed common authentication/persistence under existing authorization. `docs/development-workflow.md` defines one PR per milestone and reviewed stage commits. M2 is temporarily stacked on accepted but unmerged M1: its eventual PR targets M1, then `master` after M1 merges. No PR/merge is asserted by this plan. Provider contracts and shared real-data verification retain their gates.
+
+
+## PR stack opened — 2026-10-24
+
+M1 PR #1 targets `master`; M2 draft PR #2 targets the M1 branch. URLs and staging rules are in `docs/development-workflow.md`. M1 branch commit `48de513` reconciles master history while preserving the exact accepted `ba36146` file tree. Neither PR was merged and the default branch is unchanged. M2 common-auth package/HTTP tests are being developed in `app/`; publication of app code follows its first verified checkpoint. No provider support or completed M2 is asserted.

@@ -23,3 +23,11 @@ Keep M1's demo runnable separately. Push reviewed checkpoints to the authorized 
 ## Resume state on 2026-10-24
 
 M2 resumed at clean `31c32bd`. The previous implementation attempt stopped at a usage limit before writing code. The internal worker has resumed the common foundation under existing authorization. Board creation remains unconfirmed; provider contracts and credential/shared-operation checks remain gated. No complete M2 authentication/parser is claimed by this record.
+
+
+## Open pull requests
+
+- [M1 PR #1](https://github.com/jheredia/budgeteer/pull/1): `codex/m1-product-ux-prototype` → `master`, accepted prototype ready for integration review; no default-branch merge performed.
+- [M2 draft PR #2](https://github.com/jheredia/budgeteer/pull/2): `codex/m2-local-app` → `codex/m1-product-ux-prototype`, staged work in progress.
+
+M1 reconciles `origin/master` history in milestone-branch commit `48de513`; its file tree is identical to accepted M1 commit `ba36146`. This resolves old documentation conflicts without changing the accepted prototype, rewriting history or merging into `master`. Both PRs were reported mergeable after creation. Keep M2 draft until its complete acceptance criteria pass, and retarget it after M1 is merged with separate authorization.
