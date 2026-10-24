@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123c32">
+  <title>Por revisar · Budgeteer</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <aside class="sidebar">
+    <div class="brand-row">
+      <span class="brand">Budgeteer</span>
+      <button class="menu-toggle" type="button" aria-label="Abrir navegación" aria-expanded="false" aria-controls="navigation"><img src="assets/menu.svg" alt="" width="24" height="24"></button>
+    </div>
+    <nav id="navigation" aria-label="Navegación principal">
+      <a class="nav-item" href="#overview" data-nav="overview"><img src="assets/house.svg" alt="">Resumen</a>
+      <a class="nav-item" href="#ledger" data-nav="ledger"><img src="assets/list.svg" alt="">Movimientos</a>
+      <a class="nav-item active" href="#review" data-nav="review" aria-current="page"><img src="assets/file-text.svg" alt="">Por revisar <span class="count" id="pending-count">1</span></a>
+      <a class="nav-item" href="#sources" data-nav="sources"><img src="assets/database.svg" alt="">Fuentes</a>
+    </nav>
+    <div class="demo-tools"><span>Demostración en memoria</span><button id="restart-demo" type="button">Reiniciar demostración</button></div>
+  </aside>
+  <div class="app">
+    <div class="simulation-banner"><img src="assets/info.svg" alt="">Datos sintéticos · Sin conexión a buzones</div>
+    <div id="feedback" class="feedback global-feedback" role="status" aria-live="polite" hidden></div>
+    <main id="main" tabindex="-1"></main>
+  </div>
+</body>
+</html>

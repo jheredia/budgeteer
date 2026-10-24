@@ -4,7 +4,9 @@ Budgeteer is a privacy-conscious personal finance product that tracks and catego
 
 ## Current status
 
-M0 is accepted, complete, and published to `origin/master`, with user approval on 2026-10-22 and explicit push authorization on 2026-10-23. The project has not been released. No application code or persistent data model has been approved or scaffolded. M1 is in proposal review: its candidate Project items exist in the milestone record, but implementation is not authorized. The M0 and M1 records are in `docs/milestones/`.
+M0 is accepted, complete, and published to `origin/master`. M1 now delivers a locally runnable, connected Spanish (Chile) prototype using synthetic structured in-memory data and the selected option 2 with mostly green colors. Browser journeys, responsive widths, and primary keyboard interactions are verified. M1 was accepted after user local review on 2026-10-23. M2 proposal preparation is authorized; implementation is not. No production stack, persistence, authentication, ingestion, or mailbox integration has been introduced.
+
+Run instructions: [prototype/README.md](prototype/README.md). Scope and verification: [M1 milestone](docs/milestones/01-product-and-ux-prototype.md), [design QA](design-qa.md), and [Overseer audit](docs/design/m1/audit.md). The M1 deliverable is published on `codex/m1-product-ux-prototype` at `b3aef1e`; no merge to `master` has been performed.
 
 ## Canonical documentation read order
 
@@ -19,4 +21,4 @@ When sources conflict, follow the authority order in `AGENTS.md`; do not silentl
 
 ## Development status
 
-M0 establishes the repository contract and the privacy boundary for future work. M1–M7 are planned only. Contributors should begin by reading the documents above, work within an approved milestone packet, and keep raw email out of the repository, logs, and durable application storage.
+M0 establishes the repository contract and the privacy boundary for future work. M1 is accepted; M2 is in proposal preparation and M3–M7 remain planned. Internal milestone agents coordinate directly with the single Overseer under `AGENTS.md`. Contributors should begin by reading the documents above, work within an approved milestone packet, and keep raw email out of the repository, logs, and durable application storage.

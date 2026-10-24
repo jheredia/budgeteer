@@ -38,7 +38,7 @@ M0 delivers a safe, operationally governed repository through canonical product,
 - Verification: whitespace, safe ignore behavior, local Markdown links, and committed diff privacy/scope review as recorded above.
 - Decisions: The user-approved vertical roadmap, completion standard, the prohibition on committing or pushing any email files, synthetic in-memory parser tests, explicit authorization for future real local email processing, and milestone packet approval gate apply. Stack recommendations discussed in chat are not accepted ADRs. ADRs 0001–0003 remain accepted.
 - Risks: See open questions above; no application code or real data is included.
-- Exact next action: The Cloud Overseer accepts the repository handoff, completes contention of the existing M1 proposal, and presents the final item list to the user for manual GitHub Project creation. M1 implementation remains unauthorized until the user confirms those items are ready.
+- Next action at M0 handoff: The Cloud Overseer accepts the repository handoff, completes contention of the existing M1 proposal, and presents the final item list to the user for manual GitHub Project creation. This historical handoff has since advanced; current authorization and the visual checkpoint are recorded in the M1 milestone and Overseer handoff records.
 
 ## Change log
 

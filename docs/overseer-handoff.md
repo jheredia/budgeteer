@@ -6,7 +6,7 @@ This record transfers Budgeteer coordination from the local **Budgeteer — Over
 
 There must not be two active Overseers. The Cloud Overseer becomes authoritative after it checks out the current `origin/master`, completes the acceptance checks below, and explicitly acknowledges the handoff. The local Overseer must then stop coordinating milestones and remains historical context only.
 
-## Repository state being transferred
+## Original repository state being transferred (historical)
 
 - Repository: `jheredia/budgeteer` (`https://github.com/jheredia/budgeteer`).
 - Default branch: `master`.
@@ -17,7 +17,7 @@ There must not be two active Overseers. The Cloud Overseer becomes authoritative
 - Cloud work is limited to committed repository content. It is not authorized to access Gmail, any local mailbox, local real-email samples, or raw financial messages. M1 uses synthetic structured data only.
 - Accepted decisions are ADRs 0001–0003: generic workspaces, evidence separate from the canonical ledger, and transient raw email with no automatic provider deletion.
 
-## Workflow state
+## Original workflow state (historical)
 
 - M1 has been launched through its proposal phase only.
 - Its six candidate items are recorded in `docs/milestones/01-product-and-ux-prototype.md`.
@@ -36,7 +36,7 @@ Before directing work, the Cloud Overseer must:
 4. Restate that M1 implementation is unauthorized and that GitHub Project mutations are manual.
 5. Accept the single-Overseer role and treat this local task as retired from coordination.
 
-## Exact continuation
+## Original bootstrap continuation (historical)
 
 The Cloud Overseer's first product action is the pending M1 contention pass:
 
@@ -53,4 +53,31 @@ The Cloud Overseer must not recreate M0, reopen real emails, automate the GitHub
 - Outgoing authority: Budgeteer — Overseer, local task.
 - Incoming authority: Budgeteer — Cloud Overseer, to acknowledge after Cloud bootstrap.
 - Prepared: 2026-10-23.
-- Acceptance: pending Cloud Overseer acknowledgement.
+- Acceptance: accepted by Budgeteer — Overseer (Cloud) on 2026-10-23. The outgoing local Overseer is retired from coordination.
+
+## Acceptance exception and continuation
+
+- The clean Cloud checkout started at `2c1ea668bd9122aa07afff3e5139bda7cdc6519c` on `work`. GitHub independently reported `master` at `2679cf0969666312877cd31e5afba379c907f319`, one documentation commit ahead. Fetch failed because the environment proxy was unavailable.
+- On 2026-10-23 the user explicitly directed the Overseer to continue from the current commit and start M1 with a new agent. That instruction supersedes the checkout prerequisite and the pending Project-creation confirmation for this start only; it does not assert that manual Project setup occurred.
+- The Overseer accepted sole coordination and delegated M1 to the `m1_implementation` agent on `codex/m1-product-ux-prototype`. Missing governance records were recovered through the GitHub connector at the verified remote revision; Git ancestry was not rewritten or represented as fetched.
+- No mailbox, real email, financial message, or email-file fixture was accessed. Project mutations remain manual. The visual-direction approval checkpoint remains mandatory before broad UI implementation.
+- Current continuation: user selected option 2 with mostly green colors; generated green revision and representative source exist on the M1 branch. Static-server startup failed with sandbox `listen EPERM`, so no rendered verification exists. Overseer paused work to resolve the user's separate milestone-conversation requirement. The current subagent is not a separate user-visible milestone conversation. Preserve the branch and blocked QA record; resume only after coordination is resolved and the Overseer releases the task. Representative-surface visual approval is still required before broad UI implementation.
+
+
+## Current coordination update
+
+The user resolved the isolated-chat issue: separate chats are optional for new tasks; this task covers the complete usable prototype. The single Cloud Overseer coordinates internal milestone agents directly. M1 remains on `codex/m1-product-ux-prototype`. The latest user instruction authorizes adapting the workflow and continuing M1 through a usable prototype with the selected option 2 and mostly green palette. The separate-chat pause is superseded. Earlier bootstrap/workflow sections above are historical snapshots, not current blockers. Project changes remain manual and unconfirmed; no push or merge is authorized. Report actual design skills before marking complete and retain final user acceptance as pending until given.
+
+
+## M1 review handoff
+
+The complete M1 prototype is implemented on `codex/m1-product-ux-prototype` and verified in local Chromium. The separate-chat pause and initial server-permission blocker are resolved. See the M1 milestone, `prototype/README.md`, root `design-qa.md`, and `docs/design/m1/audit.md` for current scope, launch, verification, and limitations. Internal agents report directly to this single Overseer; separate chats are optional for independent new tasks. No work is running in an isolated M1 chat under this Overseer's coordination.
+
+The actual design skills used are Product Design index, Ideate, Image to Code, Design QA, and Audit, with User Context/Get Context supporting the brief. These were reported before any completion decision. All six approved items are ready for user review and manual `In review` status; Project creation remains unconfirmed, and no Project mutation, push, or merge has been performed. Final M1 acceptance and any M2 start remain pending user direction.
+
+
+## Accepted M1 and M2 proposal authorization
+
+On 2026-10-23 the user explicitly accepted M1 after local review and requested preparation of the M2 proposal. M1's verified deliverable `b3aef1e31bce4ee722529010248ff77bbd1b02ba` was already pushed to `codex/m1-product-ux-prototype` at the user's request; it remains unmerged. M1 is accepted/complete. Earlier pending-acceptance and unpushed snapshots above are superseded by this update.
+
+Next: an internal M2 proposal agent works on a dedicated M2 branch based on the accepted M1 history until integration is separately authorized. Scope is documentation/proposal only: no application implementation, production stack decision, real email access, mailbox connection, or Project mutation. The Overseer reviews the proposal and presents final copyable items for manual Project creation before M2 implementation authorization. No communication between sidebar chats or manual file transfers is required.

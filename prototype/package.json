@@ -1,0 +1,7 @@
+{
+  "name": "budgeteer-m1-prototype",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Disposable local M1 visual checkpoint, not a production stack decision",
+  "scripts": { "dev": "node serve.cjs" }
+}
