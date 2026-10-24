@@ -36,7 +36,7 @@ Pinned actual packages: Better Auth 1.7.12, Fastify 5.12.7, better-sqlite3 12.11
 
 Workspace/member/invitation queries are scoped. Owner/member policy is enforced server-side, not by hidden buttons. Invitations persist only as digests. Signup requires an unexpired invitation and account creation cannot grant financial access by itself. If enrollment loses a race with invitation revocation after account creation, the account may exist without membership; it has no workspace access and can accept a fresh invitation after signing in. Automated orphan account deletion is not implemented.
 
-Browser state stays in memory: no cookies/web storage for financial caches or bearer credentials. Revalidation does not rebuild unchanged forms. Logout/context changes invalidate pending responses; a late invitation response cannot render an old workspace grant after cross-tab logout. Visible connected pages revalidate within 30 seconds and on focus/restoration; hidden views clear private content. Server denial is immediate; previously delivered offline data cannot be recalled.
+Financial browser state stays in memory; no financial caches or script-accessible bearer credentials are stored in web storage. Authentication uses the HttpOnly session cookie described above. Revalidation does not rebuild unchanged forms. Logout/context changes invalidate pending responses; a late invitation response cannot render an old workspace grant after cross-tab logout. Visible connected pages revalidate within 30 seconds and on focus/restoration; hidden views clear private content. Server denial is immediate; previously delivered offline data cannot be recalled.
 
 ## Verification
 

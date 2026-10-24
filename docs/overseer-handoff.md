@@ -113,3 +113,8 @@ M2 resumed at clean `31c32bd`; the prior worker stopped at a usage limit before 
 ## PR stack opened — 2026-10-24
 
 M1 PR #1 targets `master`; M2 draft PR #2 targets the M1 branch. URLs and staging rules are in `docs/development-workflow.md`. M1 branch commit `48de513` reconciles master history while preserving the exact accepted `ba36146` file tree. Neither PR was merged and the default branch is unchanged. M2 common-auth package/HTTP tests are being developed in `app/`; publication of app code follows its first verified checkpoint. No provider support or completed M2 is asserted.
+
+
+## First M2 code checkpoint — 2026-10-24
+
+The author delivered `47d0cb2`: maintained password authentication, protected setup, invitation enrollment and persistent workspace membership in `app/`. Independent Overseer TypeScript/six-node-test/real-Chromium checks passed, including restart, nonmember denial, logout, form preservation and late-response isolation. The root README and milestone record now distinguish this partial checkpoint from the untouched M1 prototype and remaining M2 work. Publish it to draft PR #2. No provider parser, financial-ledger journey, shared real-data readiness, complete M2 or default-branch merge is claimed. User Project statuses remain manual.

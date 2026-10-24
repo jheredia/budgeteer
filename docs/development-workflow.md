@@ -31,3 +31,8 @@ M2 resumed at clean `31c32bd`. The previous implementation attempt stopped at a 
 - [M2 draft PR #2](https://github.com/jheredia/budgeteer/pull/2): `codex/m2-local-app` → `codex/m1-product-ux-prototype`, staged work in progress.
 
 M1 reconciles `origin/master` history in milestone-branch commit `48de513`; its file tree is identical to accepted M1 commit `ba36146`. This resolves old documentation conflicts without changing the accepted prototype, rewriting history or merging into `master`. Both PRs were reported mergeable after creation. Keep M2 draft until its complete acceptance criteria pass, and retarget it after M1 is merged with separate authorization.
+
+
+## First implemented M2 checkpoint
+
+App commit `47d0cb2` delivers the first shared-account foundation in `app/`, verified by the author and Overseer with TypeScript, six Node tests and real listening-server/Chromium checks. It does not complete M2 or all auth adoption: financial flows/providers and shared-operation gates remain. Stage commits are published to M2 draft PR #2 rather than opening a separate PR for each fix. See `app/README.md` for exact launch and limits.

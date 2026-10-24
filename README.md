@@ -4,7 +4,7 @@ Budgeteer is a privacy-conscious personal finance product that tracks and catego
 
 ## Current status
 
-M0 is accepted, complete, and published to `origin/master`. M1 now delivers a locally runnable, connected Spanish (Chile) prototype using synthetic structured in-memory data and the selected option 2 with mostly green colors. Browser journeys, responsive widths, and primary keyboard interactions are verified. M1 was accepted after user local review on 2026-10-23. M2 proposal preparation is authorized; implementation is not. No production stack, persistence, authentication, ingestion, or mailbox integration has been introduced.
+M0 is accepted, complete, and published to `origin/master`. M1 now delivers a locally runnable, connected Spanish (Chile) prototype using synthetic structured in-memory data and the selected option 2 with mostly green colors. Browser journeys, responsive widths, and primary keyboard interactions are verified. M1 was accepted after user local review on 2026-10-23. M2 is in staged implementation: its first authenticated shared-workspace foundation is implemented in `app/`, with provider imports and persistent financial review/ledger journeys still pending. No production deployment or mailbox integration exists.
 
 Run instructions: [prototype/README.md](prototype/README.md). Scope and verification: [M1 milestone](docs/milestones/01-product-and-ux-prototype.md), [design QA](design-qa.md), and [Overseer audit](docs/design/m1/audit.md). The M1 deliverable is published on `codex/m1-product-ux-prototype` at `b3aef1e`; no merge to `master` has been performed.
 
@@ -21,4 +21,9 @@ When sources conflict, follow the authority order in `AGENTS.md`; do not silentl
 
 ## Development status
 
-M0 establishes the repository contract and the privacy boundary for future work. M1 is accepted; M2 is in proposal preparation and M3–M7 remain planned. Internal milestone agents coordinate directly with the single Overseer under `AGENTS.md`. Contributors should begin by reading the documents above, work within an approved milestone packet, and keep raw email out of the repository, logs, and durable application storage.
+M0 establishes the repository contract and the privacy boundary for future work. M1 is accepted; M2 is in staged implementation and M3–M7 remain planned. Internal milestone agents coordinate directly with the single Overseer under `AGENTS.md`. Contributors should begin by reading the documents above, work within an approved milestone packet, and keep raw email out of the repository, logs, and durable application storage.
+
+
+## Current M2 stage
+
+The shared-account foundation runs separately in [app/](app/README.md) on local port 4174; [prototype/](prototype/README.md) preserves the accepted M1 demo. M2 stage 1 proves protected account setup, password sign-in, invitation enrollment, shared membership, nonmember denial and restart/logout behavior. It is not a complete financial app: provider formats, review/ledger journeys and further auth/shared-operation checks remain pending. See [development stages](docs/development-workflow.md) and [M2 draft PR #2](https://github.com/jheredia/budgeteer/pull/2). No default credentials or synthetic financial entries are inserted into normal workspaces.

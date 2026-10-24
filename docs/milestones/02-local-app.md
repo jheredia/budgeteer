@@ -1,6 +1,6 @@
 # M2 Local import, review, and persistent ledger
 
-- Status: runtime approved; architecture independently reviewed and Overseer-approved; common M2 implementation released, provider/adoption gates remain.
+- Status: in progress; first shared-account foundation checkpoint implemented and verified; provider, financial-journey and remaining auth/shared-operation gates remain.
 - Owner: internal `m2_implementation` agent under the single Cloud Overseer; proposal/architecture and independent review delivered by separate internal agents.
 - Branch: `codex/m2-local-app`, based on accepted M1 history at `ba36146`; M1 is unmerged to `master`.
 - Dependency: M1 accepted on 2026-10-23.
@@ -126,7 +126,7 @@ Exact-input replay protection is not anonymization: fingerprints are sensitive d
 
 ## Verification
 
-Architecture/documentation only. Canonical documents, module/data boundaries and independent findings reviewed; no new application code, parser, schema, database or real-input verification exists. Whitespace/local Markdown links are checked across the updated governance, architecture and review documents. Only documentation changes were made; the accepted M1 application files are unchanged. No real email or ignored path was opened.
+The architecture checkpoint was documentation-only. Application foundation now exists in `app/`; the accepted M1 prototype remains unchanged. Stage evidence below records actual TypeScript, HTTP and Chromium checks. No provider parser, financial-ledger persistence or real-input support is verified. No real email or ignored input path was opened.
 
 ## Risks and open questions
 
@@ -156,3 +156,13 @@ Architecture/documentation only. Canonical documents, module/data boundaries and
 ## Staged continuation — 2026-10-24
 
 The worktree resumed clean at `31c32bd`. The initial implementation attempt stopped at a usage limit before application code was written. Common work has resumed with maintained-auth/SQLite compatibility and shared-workspace persistence. See [development workflow](../development-workflow.md) for one PR per milestone, temporary dependency stacking and stage checkpoints. Provider gates and final acceptance remain unchanged. No completed M2 feature is asserted by this continuation record.
+
+
+## First foundation checkpoint — 2026-10-24
+
+- Stable app deliverable: `47d0cb2259bf825b595f94556428a344a51cc3d9`; implementation and [launch instructions](../../app/README.md) in `app/`. Stage 1 is a partial milestone checkpoint, not completion of item 1 or all M2.
+- Maintained library proof uses pinned Better Auth/Fastify/SQLite with protected enrollment context and HTTP endpoint allowlisting. Library signup enumeration protection can return synthetic 200 without creating an account; raw public signup is denied by the application. Browser JSON omits session tokens. The real SQLite library stores usable bearer tokens: encrypted storage remains a real shared-operation gate, not an invented hash/encryption claim.
+- The author and Overseer ran checks: TypeScript and six Node test cases passed, plus a real listening-server/Chromium proof with independent owner/member/outsider contexts. Proof covers invitation-only enrollment, shared membership, nonmember/owner boundaries, restart, removal, logout, preserved active forms and discarded late invitation responses after identity invalidation. Safe screenshots and machine-readable evidence are in `app/verification/`. Synthetic identities/keys were generated at runtime; temporary test databases were cleaned and no proof server remains running.
+- Corrected review findings include invalid bootstrap orphaning, interrupted setup recovery, unsupported-schema protection, strict local-date validation, transport token exposure, stale client action results and visible-form polling resets. No full security/accessibility/production readiness claim is made.
+- Remaining: persisted financial proposals/evidence/review/ledger; all provider adapters/contracts; complete auth rate/expiry/password-change/account/cleanup checks and shared HTTPS/proxy/storage verification. Item 1 remains in progress. No real financial data should be used in this checkpoint's shared-operation mode.
+- Review workflow: M1 PR #1 targets `master`; M2 draft PR #2 targets M1. No PR or default-branch merge occurred. Project statuses remain manual. Next bounded work is common financial services/read journeys and remaining auth adoption checks while actual provider formats remain gated.
