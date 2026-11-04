@@ -1,0 +1,16 @@
+{
+  "result": "passed",
+  "browser": "Chromium",
+  "checks": [
+    "Invitation-only enrollment through browser",
+    "Two independent accounts share persistent workspace",
+    "Nonmember API denial",
+    "Owner-only invitation/removal",
+    "Application restart preserves membership and sessions",
+    "Removed member denied",
+    "Logout revokes server session",
+    "Unchanged revalidation preserves active form",
+    "Late invitation response discarded after cross-tab logout"
+  ],
+  "errors": []
+}

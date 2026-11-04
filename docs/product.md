@@ -15,7 +15,7 @@ A **workspace** is the generic boundary for Budgeteer data and membership. It su
 
 ## Initial users and use cases
 
-Initial users are individuals managing a personal workspace and small groups sharing a workspace. Initial use cases are connecting a dedicated mailbox, identifying potential transaction notifications, extracting a proposed structured record, reviewing it, and understanding the evidence behind it. Multi-member permissions, provider support, and the review flow remain future design work unless approved in a milestone.
+Initial users are individuals managing a personal workspace and small groups sharing a workspace, including couples and families. Shared awareness and contribution are core product goals; workspace/member domain names remain generic for any relationship. Basic authenticated sharing is required in M2 rather than deferred to M6. Initial use cases are connecting a dedicated mailbox, identifying potential transaction notifications, extracting a proposed structured record, reviewing it, and understanding the evidence behind it. Multi-member permissions, provider support, and the review flow remain future design work unless approved in a milestone.
 
 ## Non-goals
 

@@ -1,0 +1,20 @@
+{
+  "result": "passed",
+  "browser": "Chromium",
+  "locale": "es-CL",
+  "browserTimezone": "America/Santiago",
+  "scope": "synthetic local verification only",
+  "checks": [
+    "Two independent accounts read persistent reviewed ledger after restart",
+    "In-memory synthetic MIME upload and built-in example",
+    "Correction preserves immutable evidence",
+    "Ignore allows fresh reimport",
+    "Filter buckets and totals",
+    "Polling preserves active review form",
+    "Late approval A preserves selected proposal B draft",
+    "Mobile fits viewport",
+    "Immediate cross-tab logout conceals financial content during delayed signout",
+    "Focus/pageshow cannot restore local logout intent",
+    "No page errors"
+  ]
+}

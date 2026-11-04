@@ -31,3 +31,12 @@ By default agents and tooling must not open real emails. A future milestone may 
 ## Deletion and incidents
 
 Deletion must be deliberate, auditable where appropriate, and compatible with recovery needs. If sensitive email content is exposed or suspected to be exposed, contain access, stop propagation, preserve only safe incident evidence, rotate affected credentials where applicable, assess scope, and follow the governing incident and notification process. Do not reproduce raw content in incident notes.
+
+
+## M2 shared application design requirements
+
+Basic application authentication and server-enforced workspace membership are now required in M2. A host OS account is an operating/deployment boundary, not the application identity model. Multiple members use the same workspace/store through independently authenticated browser sessions. The reviewed design must specify protected credentials/sessions, invitation and removal policy, access checks for every resource/summary/import/replay query, and workspace-scoped deletion that leaves unrelated accounts/workspaces intact.
+
+The user requested no retained ignored data. Ignoring a proposal must therefore remove its financial fields, unreferenced evidence and replay fingerprint/tombstone; reimport may create a new proposal afterward. Raw-input, logging and no-email-file rules above remain unchanged. Actual raw provider samples remain unauthorized for agent access; assumed forthcoming examples do not establish parser support.
+
+Authentication introduces new sensitive data classes. Their retention, password-hash/session behavior, secrets and encryption controls must be reviewed before implementation; no plaintext password or homemade authentication cryptography is authorized. Google identity is an alternative design path, not permission to request Gmail scopes or provision an external service.
