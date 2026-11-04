@@ -82,16 +82,18 @@ The prior one-OS-user/no-auth product model is superseded. One host OS account o
 
 SQLite lives outside the repository on protected server-local storage. The user accepted reliance on OS access/device encryption for financial data rather than adding application-level database encryption now. Authentication creates a separate credential/session protection obligation: password hashes, keys, token storage, library compatibility and an appropriate encrypted store/volume must be verified under the architecture adoption gate; do not assume tokens are hashed or encryption is already configured. No auth credential or token may be printed or committed.
 
-### Requested provider/type matrix: format contracts unresolved
+### Requested provider/type matrix: partial text contracts released
 
 The user explicitly requested Banco de Chile, Banco Santander, Banco Estado and MercadoPago, with Debit, Received Payment, Credit Card Purchase and Bank Transfer notifications. All four providers and all four types are in the requested M2 scope. The matrix records coverage obligations, not evidence that every provider issues every type in an already-known format.
 
 | Provider | Debit | Received Payment | Credit Card Purchase | Bank Transfer |
 | --- | --- | --- | --- | --- |
-| Banco de Chile | Contract pending | Contract pending | Contract pending | Contract pending |
-| Banco Santander | Contract pending | Contract pending | Contract pending | Contract pending |
+| Banco de Chile | Purchase text contract released | Contract pending | Purchase text contract released | Contract pending |
+| Banco Santander | Purchase text contract released | Contract pending | Purchase text contract released | Sent text contract released; received fields pending |
 | Banco Estado | Contract pending | Contract pending | Contract pending | Contract pending |
 | MercadoPago | Contract pending | Contract pending | Contract pending | Contract pending |
+
+The user supplied structural descriptions on 2026-11-04 and authorized starting with them. The Overseer released four purchase text contracts and, after the user clarified sent/received headings, the sent Santander transfer text contract in [notification contracts](../design/m2-notification-contracts.md). This does not claim MIME/HTML decoding, local import or real-bank validation. The Santander online-payment description is a distinct unresolved family with multiple rows and no body payment date; neither its due date nor an email date establishes the payment date. It must not silently expand the canonical model. User financial values/identifiers are not retained.
 
 Before implementing or claiming an adapter for a cell, resolve it to an approved supported notification-family contract or a user-approved not-applicable/unsupported status. Infrastructure and common review work can be released separately once their packet decisions are approved; unresolved cells still block complete M2 acceptance. A provider-specific family can have several versions, and names alone do not establish sixteen actual formats. Do not invent a bank format or silently narrow to one provider/type to fit an estimate. Obtain a non-email structured description of recognition labels, field meanings and date/amount conventions, or suitable public documentation. No raw or redacted message is requested or authorized for agent inspection. If a contract cannot be established, escalate the specific coverage gap before claiming real-world support. Construct test MIME in memory from approved contracts. Sender strings do not establish authenticity; do not invoke an LLM on raw messages or guess missing amount/date/currency.
 
@@ -126,11 +128,11 @@ Exact-input replay protection is not anonymization: fingerprints are sensitive d
 
 ## Verification
 
-The architecture checkpoint was documentation-only. Application foundation now exists in `app/`; the accepted M1 prototype remains unchanged. Stage evidence below records actual TypeScript, HTTP and Chromium checks. No provider parser, financial-ledger persistence or real-input support is verified. No real email or ignored input path was opened.
+The architecture checkpoint was documentation-only. Application foundation now exists in `app/`; the accepted M1 prototype remains unchanged. Stage evidence below records actual TypeScript, HTTP and Chromium checks. Five pure text adapters are separately tested from user-described contracts. MIME/HTML import, financial-ledger persistence and real-input support are not yet verified. No real email or ignored input path was opened.
 
 ## Risks and open questions
 
-- The four providers/types are now specified, but their non-email format contracts remain missing. Coverage cannot be claimed from provider names or invented synthetic examples.
+- Four Banco de Chile/Santander purchase text contracts and the sent Santander transfer contract are released from user descriptions; remaining families and MIME/HTML import are unresolved. Coverage cannot be claimed from provider names or invented synthetic examples.
 - Financial-data OS/disk-protection direction is accepted; auth/session token storage and key-management compatibility remain an explicit adoption gate before shared real-data operation.
 - Basic auth/shared membership are user-required M2 scope; exact library/owner-member policy/session lifecycle, workspace-scoped deletion and domain schema require the architecture gate, not inheritance from M1 demo behavior.
 - M1 is accepted and published on its branch but unmerged; this branch is based on its acceptance history. Do not merge to `master` or rewrite history without authorization.
@@ -140,9 +142,9 @@ The architecture checkpoint was documentation-only. Application foundation now e
 
 - Branch/base: `codex/m2-local-app` from `ba36146` in the dedicated `/workspace/budgeteer-m2-proposal` worktree.
 - Project items: six revised application items plus architecture item 0; user says they will add items, creation remains unconfirmed. Independent/Overseer architecture review is complete and common implementation is released; provider/adoption gates remain.
-- Changed files: milestone/governance/product/security/architecture records and accepted runtime ADR, architecture design and independent review; no application files changed.
-- Verification: proposal/document checks only; no implementation or sensitive-data access.
-- Exact next action: publish the independently reviewed architecture and corrected M2 item list, and implement the common app under the completed architecture gate. Record board readiness when confirmed; verify auth-library behavior before adoption and provider contracts before claiming each adapter. No raw email access is authorized for agents. User acceptance of the runtime and instruction to start architecture work do not skip architectural review.
+- Changed files: reviewed architecture/governance records and the authenticated shared-account application in `app/`; checkpoint details below distinguish completed work from remaining flows.
+- Verification: the first foundation passed TypeScript, six Node tests and listening-server Chromium checks. No agent real-email or private financial-database access occurred. Purchase text contracts are separately documented below.
+- Exact next action: connect the reviewed text adapters through the bounded MIME/HTML import boundary and persistent financial journey. Record board readiness when confirmed. Remaining provider and shared-operation gates still apply; no raw email access is authorized for agents.
 
 ## Change log
 
@@ -166,3 +168,11 @@ The worktree resumed clean at `31c32bd`. The initial implementation attempt stop
 - Corrected review findings include invalid bootstrap orphaning, interrupted setup recovery, unsupported-schema protection, strict local-date validation, transport token exposure, stale client action results and visible-form polling resets. No full security/accessibility/production readiness claim is made.
 - Remaining: persisted financial proposals/evidence/review/ledger; all provider adapters/contracts; complete auth rate/expiry/password-change/account/cleanup checks and shared HTTPS/proxy/storage verification. Item 1 remains in progress. No real financial data should be used in this checkpoint's shared-operation mode.
 - Review workflow: M1 PR #1 targets `master`; M2 draft PR #2 targets M1. Neither PR has been merged; `master` is unchanged. Project statuses remain manual. Next bounded work is common financial services/read journeys and remaining auth adoption checks while actual provider formats remain gated.
+
+## Notification text checkpoint — 2026-11-04
+
+- The user supplied non-email structural descriptions and authorized starting with them. Follow-up clarified Santander sent/received headings and confirmed that online payments have no body payment date. [Notification contracts](../design/m2-notification-contracts.md) records the reviewed rules without retaining the user's financial values or identifiers.
+- An internal implementation agent delivered four purchase adapters (Banco de Chile debit/credit, Santander debit/credit) and the sent Santander transfer adapter in `app/server/imports/`. The Overseer reviewed the implementation and corrected merchant processor-separator and optional Santander sentence-punctuation handling before verification. No dependency or existing runtime flow changed.
+- Verification: TypeScript and the seven-file test command pass; direct test runs verify nine purchase cases, six sent-transfer cases and all six existing foundation cases. Tests cover strict integer CLP/date/time parsing, explicit account/card hints, unknown timezones, conflicting narratives, due-date rejection, bounded fields and allowlisted immutable evidence. All input values are invented structured strings; no email fixture exists. Whitespace and tracked-email checks pass. Browser checks were not repeated because this stage changes only isolated text adapters.
+- Boundary: adapters consume explicitly selected contracts and exact separately extracted strings. They do not decode MIME/HTML, verify sender authenticity, expose an upload endpoint, persist proposals or provide a usable financial journey yet. Received Santander field extraction, online-payment row/date semantics and other requested provider contracts remain unresolved. M2 remains in progress; no item or PR is marked complete.
+- Next: bounded transient MIME/HTML extraction with surrounding-field conflict detection, import/replay persistence, review/ignore and ledger integration under the reviewed architecture. Preserve all authentication/storage gates. Publish this checkpoint to the existing draft PR; no Project mutation or merge.

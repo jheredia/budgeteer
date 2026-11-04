@@ -1,6 +1,6 @@
-# Budgeteer M2 — Stage 1 shared-account foundation
+# Budgeteer M2 — shared-account foundation and notification text contracts
 
-This checkpoint implements the reviewed Node.js/TypeScript/SQLite boundaries, maintained password authentication and shared workspace membership. It is not the complete M2 milestone. The accepted M1 prototype remains in `../prototype/`.
+This checkpoint implements the reviewed Node.js/TypeScript/SQLite boundaries, maintained password authentication and shared workspace membership. Separate pure text adapters implement four reviewed Banco de Chile/Santander purchase contracts and a sent Santander transfer contract. It is not the complete M2 milestone or a working import flow. The accepted M1 prototype remains in `../prototype/`.
 
 ## Run locally
 
@@ -53,7 +53,7 @@ Checks cover raw signup guards, salted password storage, safe session DTOs, cook
 ## Explicit next-stage gates
 
 - Persistent financial proposal/evidence/review/ledger flows are not connected yet. The UI says so rather than showing demo amounts as real records.
-- No provider parser or import endpoint is enabled. Banco de Chile, Santander, Banco Estado and MercadoPago formats remain unverified until agreed example-derived contracts exist. No mailbox, real email or financial database was accessed. No email files/fixtures are committed.
+- No import endpoint is enabled. `server/imports/purchase-adapters.ts` accepts only a caller-selected contract, already-extracted title and single purchase narrative. `transfer-adapter.ts` accepts exact extracted heading, date narrative and amount fields for sent Santander transfers. They implement five text contracts with synthetic tests; MIME/HTML decoding, conflicting table-field checks and upload integration remain unfinished. They do not authenticate bank origin. See [contract boundaries](../docs/design/m2-notification-contracts.md) for unknown timezone handling and unresolved received-transfer/online-payment/other-provider coverage. No mailbox, real email or private financial database was accessed. No email files/fixtures are committed.
 - The domain validators are groundwork, not proof of an accepted production financial schema. Semantic deduplication, transfer matching and reconciled balances remain outside M2.
 - Full auth adoption still needs broader failure/rate-limit/expiry/password-change and lifecycle coverage. Identifier-plus-address failed-login policy, account recovery/deletion, credential rotation and expired auth-row cleanup are not complete merely because library sign-in works.
 - Default operation binds loopback. Another device needs one operator-configured HTTPS origin/reverse proxy targeting this same server/database. `shared-https` configuration requires HTTPS origin, an explicit trusted proxy and `BUDGETEER_ENCRYPTED_STORAGE_CONFIRMED=yes`. That last value is an operator assertion/prerequisite, **not encryption implemented by the app**. Shared-mode proxy/cookie/storage verification has not passed, so do not use this checkpoint for shared real financial data.
