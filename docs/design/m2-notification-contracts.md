@@ -4,7 +4,7 @@
 
 On 2026-11-04 the user supplied descriptions of Banco de Chile and Santander notification wording, field labels and formatting, and authorized starting with these. The Overseer releases the four purchase text contracts below. Only structural rules are recorded; the user's financial values and account/customer identifiers are not retained. Tests use independently invented data. No real email, mailbox or private database was inspected.
 
-This stage consumes bounded, already-extracted visible text with an explicitly selected provider. It does not decode MIME or HTML, authenticate bank origin, accept uploads or save financial records. A description of an HTML/table presentation does not establish the actual DOM or MIME encoding. Synthetic adapter tests establish only the documented text contracts; full local import remains an unfinished M2 stage.
+The initial text-adapter checkpoint consumed already-extracted title/narrative fields. The subsequent synthetic local journey connects those adapters to bounded in-memory MIME/HTML decoding, persistent proposals/evidence, deliberate review and the saved ledger. A description of an HTML/table presentation does not establish every actual DOM or MIME variant. The implementation is verified with independently invented inputs, makes no bank-origin authenticity claim, and is not released for real financial data.
 
 ## Released purchase contracts
 
@@ -22,7 +22,7 @@ Shared rules:
 - Currency is CLP under this Chile-specific contract, not an inference that every `$` denotes CLP. Reject conflicting currency indications.
 - Amounts are positive safe integers. Periods separate thousands; decimal amounts, malformed grouping, conflicting amounts and overflow are invalid.
 - Dates use `dd/mm/yyyy`, validated against the actual calendar. Normalize to a date-only `yyyy-mm-dd` proposed record.
-- Chile purchase time is `HH:mm`. Retain observed local time only as minimized evidence with timezone explicitly unknown. Do not invent a Santiago/UTC offset or claim an instant. Date-only grouping uses the observed calendar month; Santiago conversion applies only to known-offset timestamps elsewhere in the app.
+- Chile purchase time is `HH:mm`. Retain observed local time only as minimized evidence with timezone explicitly unknown. Do not invent a Santiago/UTC offset or claim an instant. This financial endpoint approves calendar dates only (`DATE_ONLY_REQUIRED` for timestamps), orders by date/stable ID and groups by the observed/reviewed month. The broader domain validator's offset/Santiago groundwork does not establish financial endpoint support.
 - Santander purchase date comes from the explicit purchase narrative. `Fecha de vencimiento` is never a transaction-date source. Missing purchase date stays unsupported/invalid.
 - One unambiguous purchase per input. Reject conflicting/repeated purchase narratives, mixed card types, malformed required fields and oversized text/merchant values with safe codes.
 - Keep proposal fields separate from immutable observed evidence. Category remains unassigned for review; an outgoing purchase is not automatically assigned an expense category.
@@ -42,6 +42,14 @@ The **received** heading establishes incoming semantics only. Its date/amount la
 
 **Other requested coverage:** Banco de Chile received payments/transfers, Santander received payments, and all Banco Estado/MercadoPago families still lack contracts. Requested scope remains intact; unresolved coverage prevents complete M2 acceptance. Unsupported or unknown versions must fail honestly rather than use guessed fields.
 
+## Current MIME/HTML envelope
+
+The synthetic-only upload accepts one bounded MIME input after account/workspace authorization and same-origin validation. Maintained MailParser handles decoding in a terminable worker; parse5 extracts structural text without rendering HTML or fetching resources. Attachments, hidden blocks, malformed input and unfamiliar surrounding content fail safely. Nonempty text/HTML alternatives must agree. Sender/header dates never establish transaction authenticity or payment dates.
+
+Purchase bodies must have the released heading and narrative, with optional known label/value pairs that agree: `Comercio`/`Destino`, `Monto`, transaction `Fecha`, observed `Hora`, and applicable masked account/card hints. Santander can show only the matching four suffix digits. Duplicate/conflicting labels, unknown fields and due-date tables are unsupported/ambiguous. Transfer bodies currently support the exact heading/date-narrative/amount-label/value envelope; additional account/identity sections remain unsupported and are never retained. Unknown bank boilerplate or versions can therefore be rejected. This is narrow, disclosed coverage rather than general real-bank HTML validation.
+
+Raw data stays transient. Stored evidence contains only allowlisted observed fields; reviewed corrections do not rewrite it. Ignore and expiry remove pending evidence and replay markers together. See [app instructions and limits](../../app/README.md) for concrete upload/worker bounds, schema/lifecycle behavior and functional proofs.
+
 ## Continuation
 
-Review the purchase adapters and synthetic tests, then implement the bounded MIME/HTML import boundary and persisted proposal/review/ledger flow under the existing architecture. Preserve upload deadlines/admission limits, exact-input replay scoping, immediate ignored-data removal and transactional membership checks. Real local input enablement and shared operation retain their separate gates in the milestone and security records.
+The synthetic import/review/ledger flow is implemented. Remaining M2 work includes unresolved provider contracts, online-payment decisions, authentication/lifecycle hardening, owner-only workspace deletion and shared HTTPS/storage verification. Do not expand recognition from guesses or enable real local input from synthetic proof alone. Real local input and shared operation retain their separate gates in the milestone and security records.

@@ -17,7 +17,8 @@ export function openStore(directory: string) {
       const row = db
         .prepare("SELECT MAX(version) AS version FROM application_migration")
         .get() as { version: number | null };
-      if (row.version !== 1) throw new Error("UNSUPPORTED_APPLICATION_SCHEMA");
+      if (row.version !== 1 && row.version !== 2)
+        throw new Error("UNSUPPORTED_APPLICATION_SCHEMA");
     }
   } catch (error) {
     db.close();
@@ -50,4 +51,45 @@ export function migrateApplication(db: Store) {
     INSERT OR IGNORE INTO application_migration(version) VALUES(1);
   `),
   )();
+  const version = (
+    db
+      .prepare("SELECT MAX(version) AS version FROM application_migration")
+      .get() as { version: number }
+  ).version;
+  if (version === 1)
+    db.transaction(() =>
+      db.exec(`
+    CREATE TABLE financial_evidence(
+      workspace_id TEXT NOT NULL REFERENCES workspace(id) ON DELETE CASCADE,
+      id TEXT NOT NULL, contract TEXT NOT NULL, provider TEXT NOT NULL,
+      observations TEXT NOT NULL, created_at INTEGER NOT NULL,
+      PRIMARY KEY(workspace_id,id));
+    CREATE TABLE financial_proposal(
+      workspace_id TEXT NOT NULL, id TEXT NOT NULL, evidence_id TEXT NOT NULL,
+      fields TEXT NOT NULL, expires_at INTEGER NOT NULL, version INTEGER NOT NULL DEFAULT 1 CHECK(version=1),
+      PRIMARY KEY(workspace_id,id), UNIQUE(workspace_id,evidence_id),
+      FOREIGN KEY(workspace_id,evidence_id) REFERENCES financial_evidence(workspace_id,id) ON DELETE CASCADE);
+    CREATE INDEX proposal_expiry ON financial_proposal(expires_at,workspace_id,id);
+    CREATE INDEX proposal_workspace ON financial_proposal(workspace_id,id);
+    CREATE TABLE financial_record(
+      workspace_id TEXT NOT NULL, id TEXT NOT NULL, evidence_id TEXT NOT NULL,
+      proposal_id TEXT NOT NULL, label TEXT NOT NULL, amount INTEGER NOT NULL CHECK(amount>0),
+      occurred_at TEXT NOT NULL, month TEXT NOT NULL, category TEXT NOT NULL,
+      type TEXT NOT NULL CHECK(type IN ('debit','received_payment','credit_card_purchase','bank_transfer')),
+      direction TEXT NOT NULL CHECK(direction IN ('incoming','outgoing','unresolved')),
+      approved_by TEXT NOT NULL REFERENCES user(id), approved_at INTEGER NOT NULL,
+      PRIMARY KEY(workspace_id,id), UNIQUE(workspace_id,proposal_id), UNIQUE(workspace_id,evidence_id),
+      FOREIGN KEY(workspace_id,evidence_id) REFERENCES financial_evidence(workspace_id,id));
+    CREATE INDEX record_chronology ON financial_record(workspace_id,occurred_at DESC,id DESC);
+    CREATE INDEX record_filters ON financial_record(workspace_id,month,type,direction,occurred_at DESC,id DESC);
+    CREATE INDEX evidence_provider ON financial_evidence(workspace_id,provider,id);
+    CREATE TABLE financial_marker(
+      workspace_id TEXT NOT NULL, fingerprint TEXT NOT NULL, evidence_id TEXT NOT NULL,
+      PRIMARY KEY(workspace_id,fingerprint), UNIQUE(workspace_id,evidence_id),
+      FOREIGN KEY(workspace_id,evidence_id) REFERENCES financial_evidence(workspace_id,id) ON DELETE CASCADE);
+    INSERT INTO application_migration(version) VALUES(2);
+  `),
+    )();
+  const violations = db.pragma("foreign_key_check") as unknown[];
+  if (violations.length) throw new Error("INVALID_APPLICATION_REFERENCES");
 }

@@ -6,6 +6,9 @@ import {
   type Member,
 } from "./features/api.js";
 import { signin, workspaceView, escape } from "./features/views.js";
+import { FinancialView } from "./features/finances.js";
+let financial: FinancialView | null = null;
+let signedOutLocally = false;
 const main = document.querySelector<HTMLElement>("#main")!,
   logout = document.querySelector<HTMLButtonElement>("#logout")!,
   notice = document.querySelector<HTMLElement>("#notice")!;
@@ -24,6 +27,8 @@ let invitation = new URLSearchParams(location.hash.slice(1)).get("invite");
 if (location.hash) history.replaceState(null, "", location.pathname);
 function invalidate() {
   generation++;
+  financial?.dispose();
+  financial = null;
   controller.abort();
   controller = new AbortController();
   user = null;
@@ -37,13 +42,41 @@ function invalidate() {
 function message(text: string) {
   notice.textContent = text;
 }
-function render() {
+function render(preserveFinancial = false) {
+  const existing = preserveFinancial
+    ? document.querySelector<HTMLElement>("#financial")
+    : null;
+  if (!existing) {
+    financial?.dispose();
+    financial = null;
+  }
   logout.hidden = !user;
   main.innerHTML = user
     ? workspaceView(user, workspaces, selected, members, Boolean(invitation))
     : signin(Boolean(invitation));
+  if (existing) {
+    document.querySelector("#financial")?.replaceWith(existing);
+    return;
+  }
+  if (user && selected) {
+    const context = generation,
+      id = selected.id;
+    financial = new FinancialView(
+      document.querySelector<HTMLElement>("#financial")!,
+      id,
+      () => context === generation && id === selected?.id,
+      () => {
+        invalidate();
+        void refresh();
+      },
+    );
+  }
 }
 async function refresh() {
+  if (signedOutLocally) {
+    if (!main.hasChildNodes()) render();
+    return;
+  }
   const current = generation,
     sequence = ++refreshSequence;
   controller.abort();
@@ -81,13 +114,15 @@ async function refresh() {
       selected?.id !== workspace?.id ||
       JSON.stringify(workspaces) !== JSON.stringify(result.workspaces) ||
       JSON.stringify(members) !== JSON.stringify(roster.members);
-    if (user?.id !== session.user.id || selected?.id !== workspace?.id)
-      generation++;
+    const sameContext =
+      user?.id === session.user.id && selected?.id === workspace?.id;
+    if (!sameContext) generation++;
     user = session.user;
     workspaces = result.workspaces;
     selected = workspace;
     members = roster.members;
-    if (changed) render();
+    if (changed) render(sameContext);
+    else void financial?.revalidate();
   } catch (error) {
     if (current !== generation || sequence !== refreshSequence) return;
     if (error instanceof RequestError && error.status === 401) {
@@ -113,7 +148,8 @@ main.addEventListener("submit", async (event) => {
     if (form.id === "signin") {
       await api("/api/auth/sign-in/email", "POST", Object.fromEntries(fields));
       if (context !== generation) return;
-      channel?.postMessage("invalidate");
+      signedOutLocally = false;
+      channel?.postMessage("login");
       await refresh();
     }
     if (form.id === "enroll") {
@@ -133,7 +169,8 @@ main.addEventListener("submit", async (event) => {
       invitation = null;
       await api("/api/auth/sign-in/email", "POST", { email, password });
       if (context !== generation) return;
-      channel?.postMessage("invalidate");
+      signedOutLocally = false;
+      channel?.postMessage("login");
       await refresh();
     }
     if (form.id === "create-workspace") {
@@ -151,6 +188,8 @@ main.addEventListener("submit", async (event) => {
 main.addEventListener("change", (event) => {
   if ((event.target as HTMLElement).id === "workspace") {
     generation++;
+    financial?.dispose();
+    financial = null;
     selected =
       workspaces.find(
         (item) => item.id === (event.target as HTMLSelectElement).value,
@@ -210,18 +249,25 @@ main.addEventListener("click", async (event) => {
   }
 });
 logout.addEventListener("click", async () => {
+  signedOutLocally = true;
+  invitation = null;
+  invalidate();
+  channel?.postMessage("logout");
+  render();
   try {
     await api("/api/auth/sign-out", "POST", {});
-  } finally {
-    invitation = null;
-    invalidate();
-    channel?.postMessage("invalidate");
-    render();
+  } catch {
+    message(
+      "La vista local está cerrada. Vuelve a iniciar sesión para continuar.",
+    );
   }
 });
-channel?.addEventListener("message", () => {
+channel?.addEventListener("message", (event) => {
+  if (event.data === "logout") signedOutLocally = true;
+  if (event.data === "login") signedOutLocally = false;
   invalidate();
-  if (!document.hidden) void refresh();
+  if (signedOutLocally) render();
+  else if (!document.hidden) void refresh();
 });
 document.addEventListener("visibilitychange", () => {
   if (document.hidden) invalidate();

@@ -1,6 +1,6 @@
 # M2 architecture: shared import, review, and ledger
 
-- Status: independent and Overseer architecture review complete; common M2 implementation released. The first shared-account foundation is implemented; provider and shared-operation gates remain. See the milestone's current checkpoint records.
+- Status: independent and Overseer architecture review complete; common M2 implementation released. Shared accounts and the bounded synthetic import/review/ledger journey are implemented; remaining provider and real/shared-operation gates remain. See the milestone's current checkpoint records.
 - Approved milestone choices: Node.js, TypeScript and SQLite; generic workspaces; authenticated users sharing records; requested four providers/types; ignored inputs leave no retained data.
 - Proposed choices below: module layout, maintained libraries, owner/member policy, sessions, invitation flow, trust/configuration and credential retention. Approval is not implied by this draft.
 - Provider support is unverified until example-derived, non-email contracts are reviewed. Four purchase text contracts and the sent Santander transfer contract are now released in [notification contracts](m2-notification-contracts.md); end-to-end provider import is not yet verified. No real message, private mailbox or financial database was accessed.

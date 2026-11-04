@@ -1,7 +1,7 @@
 # M2 Local import, review, and persistent ledger
 
-- Status: in progress; first shared-account foundation checkpoint implemented and verified; provider, financial-journey and remaining auth/shared-operation gates remain.
-- Owner: internal `m2_implementation` agent under the single Cloud Overseer; proposal/architecture and independent review delivered by separate internal agents.
+- Status: in progress; authenticated shared accounts and the synthetic five-format import/review/persistent-ledger journey are implemented. Remaining provider, auth/lifecycle/deletion and real/shared-operation gates remain.
+- Owner: single Cloud Overseer with internal implementation workers (`m2_implementation`, `m2_purchase_adapters`, `m2_financial_journey`) and independent proposal/architecture/financial reviewers. Internal workers do not own milestone acceptance or merge authority.
 - Branch: `codex/m2-local-app`, based on accepted M1 history at `ba36146`; M1 is unmerged to `master`.
 - Dependency: M1 accepted on 2026-10-23.
 - Authorization: the user approved Node.js/TypeScript/SQLite, authorized architectural design/review before implementation, and required basic authentication/shared membership. They will add board items; creation is not yet confirmed. The requested architecture gate is complete; the Overseer releases common infrastructure, authentication/shared-workspace and review/ledger implementation under the user's explicit instruction to start. This is an implementation-start exception without claiming board creation. No real-email agent access, production deployment, Project mutation or merge is authorized. Proposal/design branch publication uses the established GitHub synchronization workflow.
@@ -128,11 +128,11 @@ Exact-input replay protection is not anonymization: fingerprints are sensitive d
 
 ## Verification
 
-The architecture checkpoint was documentation-only. Application foundation now exists in `app/`; the accepted M1 prototype remains unchanged. Stage evidence below records actual TypeScript, HTTP and Chromium checks. Five pure text adapters are separately tested from user-described contracts. MIME/HTML import, financial-ledger persistence and real-input support are not yet verified. No real email or ignored input path was opened.
+The architecture checkpoint was documentation-only. `app/` now provides shared accounts and the bounded synthetic MIME/HTML import, review and persistent-ledger flow; the accepted M1 prototype remains unchanged. Stage evidence below distinguishes tested synthetic coverage from unresolved real formats/operation. No real email or private financial database was opened.
 
 ## Risks and open questions
 
-- Four Banco de Chile/Santander purchase text contracts and the sent Santander transfer contract are released from user descriptions; remaining families and MIME/HTML import are unresolved. Coverage cannot be claimed from provider names or invented synthetic examples.
+- Four Banco de Chile/Santander purchase contracts and the sent Santander transfer contract are connected through the strict synthetic MIME/HTML envelope. Remaining families and actual bank variants are unresolved. Synthetic proof does not establish real-bank support.
 - Financial-data OS/disk-protection direction is accepted; auth/session token storage and key-management compatibility remain an explicit adoption gate before shared real-data operation.
 - Basic auth/shared membership are user-required M2 scope; exact library/owner-member policy/session lifecycle, workspace-scoped deletion and domain schema require the architecture gate, not inheritance from M1 demo behavior.
 - M1 is accepted and published on its branch but unmerged; this branch is based on its acceptance history. Do not merge to `master` or rewrite history without authorization.
@@ -142,9 +142,9 @@ The architecture checkpoint was documentation-only. Application foundation now e
 
 - Branch/base: `codex/m2-local-app` from `ba36146` in the dedicated `/workspace/budgeteer-m2-proposal` worktree.
 - Project items: six revised application items plus architecture item 0; user says they will add items, creation remains unconfirmed. Independent/Overseer architecture review is complete and common implementation is released; provider/adoption gates remain.
-- Changed files: reviewed architecture/governance records and the authenticated shared-account application in `app/`; checkpoint details below distinguish completed work from remaining flows.
-- Verification: the first foundation passed TypeScript, six Node tests and listening-server Chromium checks. No agent real-email or private financial-database access occurred. Purchase text contracts are separately documented below.
-- Exact next action: connect the reviewed text adapters through the bounded MIME/HTML import boundary and persistent financial journey. Record board readiness when confirmed. Remaining provider and shared-operation gates still apply; no raw email access is authorized for agents.
+- Changed files: reviewed architecture/governance records and `app/` account, import, repository/service, review and ledger modules; checkpoint details below distinguish current synthetic coverage from remaining gates.
+- Verification: foundation and synthetic financial proofs are recorded below and in `app/verification/`. No agent real-email or private financial-database access occurred.
+- Exact next action: publish the reviewed synthetic local journey for user review, then complete remaining auth/lifecycle/workspace-deletion checks while unresolved formats await contracts. Real-data operation and M2 acceptance remain gated; record board readiness only when confirmed.
 
 ## Change log
 
@@ -176,3 +176,26 @@ The worktree resumed clean at `31c32bd`. The initial implementation attempt stop
 - Verification: TypeScript and the seven-file test command pass; direct test runs verify nine purchase cases, six sent-transfer cases and all six existing foundation cases. Tests cover strict integer CLP/date/time parsing, explicit account/card hints, unknown timezones, conflicting narratives, due-date rejection, bounded fields and allowlisted immutable evidence. All input values are invented structured strings; no email fixture exists. Whitespace and tracked-email checks pass. Browser checks were not repeated because this stage changes only isolated text adapters.
 - Boundary: adapters consume explicitly selected contracts and exact separately extracted strings. They do not decode MIME/HTML, verify sender authenticity, expose an upload endpoint, persist proposals or provide a usable financial journey yet. Received Santander field extraction, online-payment row/date semantics and other requested provider contracts remain unresolved. M2 remains in progress; no item or PR is marked complete.
 - Next: bounded transient MIME/HTML extraction with surrounding-field conflict detection, import/replay persistence, review/ignore and ledger integration under the reviewed architecture. Preserve all authentication/storage gates. Publish this checkpoint to the existing draft PR; no Project mutation or merge.
+
+## Synthetic import-to-ledger checkpoint — 2026-11-04
+
+The user authorized continuation of the five-format import-to-ledger stage. The internal `m2_financial_journey` worker implemented `app/`; the read-only `m2_financial_review` agent challenged the source and tests, and the Overseer reviewed the final patch and ran independent integration checks. Implementation follows the reviewed module boundaries: HTTP/admission and a terminable MIME/HTML worker, financial use cases behind a concrete repository port, scoped SQLite adapters/migration 2, and a browser financial feature with context invalidation. The M1 prototype is unchanged.
+
+- Item 1: account/membership foundation is preserved. Upgrade from populated schema 1 to 2 preserves users/workspaces; failed migration rolls back without recreating the store. Full auth/shared-operation gates remain.
+- Item 2: the common single-input pipeline and five described formats now support synthetic local verification end-to-end. Maintained MailParser 3.14.2/parse5 8.0.0 decode transiently; attachments, hidden/unknown content, contradictory fields/alternatives and malformed/oversized inputs fail safely. Known matching purchase field tables are checked. No sender authenticity or general real-bank HTML coverage is claimed.
+- Item 3: Banco Estado/MercadoPago and remaining notification families still await contracts; requested scope is not removed.
+- Item 4: members can correct proposal fields, deliberately approve once into a canonical record with unchanged evidence, or ignore and remove proposal/evidence/replay state. Membership is rechecked inside short write transactions. Pending expiry is 30 days with read-time exclusion, bounded cleanup and targeted replay cleanup beyond the sweep batch. Identical retained bytes reopen the existing workspace-scoped result across restart; ignored/expired bytes may create a fresh proposal.
+- Item 5: the persistent ledger has month/provider/type/direction filters, bounded cursor pages, distinct detail/evidence and SQL totals over the full matching set. Confirmed incoming/outgoing exclude card purchases; confirmed-direction card amounts and unresolved amounts/counts are separate. Safe overflow and retryable store-busy responses avoid fabricated totals or lost decisions. No balance, income/expense classification or semantic reconciliation is claimed.
+- Item 6: sources/privacy explain actual coverage, no mailbox connection, minimized retention and ignore/reimport behavior. Full owner-only workspace deletion remains unfinished.
+
+Current release is **synthetic local verification only**, with an explicit built-in invented example and a synthetic-file declaration. It does not make the contents of an arbitrary upload verifiably synthetic or establish real-data readiness. Approval requires calendar dates (`DATE_ONLY_REQUIRED` for offset timestamps); observed local times keep unknown timezone. Ledger date/ID ordering and month grouping use the observed/reviewed date. Broader timestamp support, real-input enablement and shared operation remain gated.
+
+Review corrections included replacing SQL-in-use-cases with the repository port; matching-table conflict checks; unread-request/timeout cleanup; global/actor busy status and retry guidance; precise overflow/store-busy handling; unresolved counts and disclosed credit basis; immediate cross-tab local logout concealment; stale detail-action guards and preserved active forms; and loading the client as an ES module to avoid browser-global collisions. No P1/P2 finding remains for this bounded stage; this is not a full security or accessibility audit.
+
+Verification on the reviewed patch:
+
+- Author and Overseer: build/TypeScript and all **29 Node tests** pass. Real raw-socket checks exercise unauthorized unread-body denial, actor admission, disconnect/reuse, roughly 10-second header/body-idle cutoffs and 30-second delayed-auth/trickled-body cutoffs. Additional cases cover MIME encodings/HTML conflicts, worker deadline/cancellation/saturation, shared access/foreign IDs, correction/evidence separation, replay/ignore/restart, filtered totals/pagination, rollback, membership races, scoped foreign keys, populated migration/failure recovery, expiry beyond 100 rows, exact integer overflow and actual SQLite lock/retry without record loss.
+- Author and Overseer: retained account Chromium proof and the new financial Chromium journey pass. Separate member accounts see the same saved ledger after restart; actual in-memory file selection and built-in examples work; correction/ignore/filter/mobile/stale-action/late-response/delayed-signout checks pass. Financial capture uses `es-CL` and `America/Santiago` browser settings, without inferring an input timezone. Safe machine-readable proof and desktop/mobile captures are in `app/verification/`.
+- Production dependency audit after controlled MailParser/static-plugin updates reports zero advisories. Whitespace, tracked-email and sensitive-artifact inspection pass. Tests construct invented MIME in memory and delete temporary databases; no real email, mailbox or private financial database was accessed.
+
+The stage is ready for user local review via [app instructions](../../app/README.md) and draft PR #2. M2 remains in progress; Project statuses are manual and no item creation/completion, user acceptance, default-branch merge or production publication is asserted. Next work is authentication/lifecycle and owner-only workspace deletion, followed by remaining provider contracts and integrated real/shared-operation gates. Missing formats do not block the independent common hardening work.

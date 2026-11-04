@@ -172,3 +172,76 @@ button:disabled {
     flex-wrap: wrap;
   }
 }
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  align-items: end;
+}
+.totals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+.totals > div {
+  padding: 16px;
+  background: #edf6f0;
+  border-radius: 8px;
+}
+.totals strong {
+  display: block;
+  font-size: 24px;
+}
+.financial-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dce7e0;
+  padding: 16px 0;
+}
+.financial-row > span:first-child {
+  flex: 1;
+  min-width: 150px;
+}
+.evidence {
+  background: #f0f6f2;
+  padding: 18px;
+  border-left: 4px solid #18704e;
+  border-radius: 6px;
+}
+dl {
+  display: grid;
+  grid-template-columns: minmax(100px, 1fr) 2fr;
+  gap: 8px 20px;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+.detail-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: normal;
+}
+.check input {
+  width: 24px;
+  flex-shrink: 0;
+}
+#financial-status:not(:empty) {
+  padding: 12px;
+  background: #edf6f0;
+}
